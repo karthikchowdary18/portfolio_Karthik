@@ -1,0 +1,8 @@
+venv/
+.git/
+__pycache__/
+*.py[cod]
+*.pyo
+.chrome-headless/
+.edge-headless/
+app/database/portfolio.db

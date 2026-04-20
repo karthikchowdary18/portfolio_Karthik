@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "title": "Karthik Chowdary Nunna | Portfolio",
+    "toggle_language": "Switch between English and German"
+  },
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact",
+    "connect": "Let's Connect"
+  },
+  "hero": {
+    "eyebrow": "Autonomous Driving - Robotics - Software Development",
+    "title": "Building intelligent mobility and premium digital systems.",
+    "description": "Master's student in Germany focused on Autonomous Driving, ROS 2 interfaces, geospatial systems, and modern digital experiences.",
+    "available": "Open to robotics, mobility, and full-stack roles.",
+    "cta_primary": "View Projects",
+    "cta_secondary": "Contact Me",
+    "microcopy": "Blending autonomous mobility, interaction design, and product-minded software engineering.",
+    "stat_one": "Autonomous Driving at Coburg University",
+    "stat_two": "Human-machine interfaces, robotics, and software systems",
+    "stat_three": "Bilingual portfolio experience with live UI switching",
+    "note_label": "What I Build",
+    "note_title": "Engineering shaped by systems thinking and visual clarity.",
+    "note_body": "My work brings together mobility, robotics, interaction design, and product-quality software.",
+    "blueprint_label": "Core Strengths",
+    "core_tag": "Profile",
+    "core_title": "Robotics + Software + Interaction",
+    "core_body": "A portfolio centered on systems thinking, practical execution, and polished digital experiences.",
+    "node_one_title": "Autonomous Mobility",
+    "node_one_body": "Path planning, localization, and route-aware systems built for real-world movement.",
+    "node_two_title": "Human-Machine Interfaces",
+    "node_two_body": "Clear, trustworthy user experiences for operators, passengers, and connected systems.",
+    "node_three_title": "Full-Stack Systems",
+    "node_three_body": "Python services, web platforms, and structured workflows that support real products.",
+    "node_four_title": "Applied AI",
+    "node_four_body": "Analytics, computer vision, and machine learning aimed at practical decision-making.",
+    "pedestrian_status_approaching": "Pedestrian approaching. The car is slowing down.",
+    "pedestrian_status_waiting": "Pedestrian crossing. The car is waiting.",
+    "signal_button": "Make it green",
+    "signal_status_approaching": "Red signal ahead. The car is preparing to stop.",
+    "signal_status_waiting": "Red signal ahead. Press the button or wait 10 seconds.",
+    "signal_status_green": "Green signal. Car moving again.",
+    "signal_status_auto": "Auto green. Car moving again.",
+    "signal_countdown": "Auto green in {seconds}s",
+    "panel_label": "Current Focus",
+    "panel_intro": "Student Researcher and M.Eng. Autonomous Driving @ Coburg University along with building geospatial, and full-stack systems with clear, human-centered digital experiences.",
+    "console_label": "System Focus",
+    "console_title": "Autonomous Mobility Stack",
+    "console_body": "ROS 2 interfaces, geospatial pipelines, APIs, and data products.",
+    "stack_label": "Signal Chain",
+    "stack_one": "Sense and map",
+    "stack_two": "Plan and optimize",
+    "stack_three": "Render and explain",
+    "stack_four": "Ship and deploy"
+  },
+  "band": {
+    "one": "Autonomous Mobility",
+    "two": "ROS 2 Human-Machine Interfaces",
+    "three": "Geospatial Systems",
+    "four": "Product-Minded Engineering",
+    "five": "Premium Digital Design"
+  },
+  "about": {
+    "kicker": "About",
+    "title": "Building software for mobility, interaction, and intelligent systems.",
+    "paragraph_one": "I work at the intersection of autonomous mobility, software engineering, and user-centered interaction design. My current focus blends Human Maschine Interfaces for robots,and digital experiences that make complex technology feel clear and useful.",
+    "paragraph_two": "Alongside robotics, I enjoy turning complex industrial and analytical workflows into clean interfaces, whether that means a map-driven routing platform, a ROS-connected HMI, or a dashboard powered by machine learning insights.",
+    "card_one": {
+      "eyebrow": "Mobility Systems",
+      "title": "Autonomous driving with real-world constraints",
+      "body": "Components like Trajectory controller, Decision Makers, HMI workflows, and system integration for model-city and Autonomous shuttle environments."
+    },
+    "card_two": {
+      "eyebrow": "Platforms and Products",
+      "title": "Software systems with frontend clarity",
+      "body": "Python services, data workflows, and web experiences that translate technical complexity into usable products."
+    },
+    "card_three": {
+      "eyebrow": "Applied Intelligence",
+      "title": "Analytics, AI, and human-centered decisions",
+      "body": "Data analysis, dashboard thinking, defect prediction, and machine learning systems designed for real people."
+    }
+  },
+  "learning": {
+    "kicker": "Focus Areas",
+    "title": "What defines the way I work and build.",
+    "description": "I enjoy projects where engineering depth, clear interfaces, and practical impact all come together.",
+    "card_one": {
+      "label": "Mobility",
+      "title": "Autonomous systems with real constraints",
+      "body": "I like working on problems where maps, routing, localization, and system behavior connect directly to the real world."
+    },
+    "card_two": {
+      "label": "Interfaces",
+      "title": "Experiences people can trust",
+      "body": "From shuttle HMIs to booking flows, I care about clarity, accessibility, and confidence in every interaction."
+    },
+    "card_three": {
+      "label": "Platforms",
+      "title": "Software that supports real products",
+      "body": "I build practical Python-based systems, structured data workflows, and web experiences that stay useful and understandable."
+    },
+    "card_four": {
+      "label": "Research",
+      "title": "Curiosity backed by execution",
+      "body": "Research, analytics, and experimentation help me turn ideas into grounded systems with measurable value."
+    }
+  },
+  "skills": {
+    "kicker": "Skills",
+    "title": "Tooling across robotics, web systems, and applied AI.",
+    "description": "The skill groups below come directly from the areas I use most in coursework, research, and hands-on project delivery.",
+    "group_one": {
+      "title": "Backend and APIs",
+      "description": "Reliable services, data pipelines, and storage for full-stack systems."
+    },
+    "group_two": {
+      "title": "Frontend and interaction",
+      "description": "Interfaces that connect users clearly to live backend systems."
+    },
+    "group_three": {
+      "title": "Robotics and mobility",
+      "description": "Autonomous-driving workflows grounded in sensing, planning, and mapping."
+    },
+    "group_four": {
+      "title": "Data and machine learning",
+      "description": "Analytics pipelines and ML experiments connected to usable decision support."
+    },
+    "chips": {
+      "git_version_control": "Git version control",
+      "trajectory_controller": "Trajectory Controller",
+      "decision_maker": "Decision Maker"
+    }
+  },
+  "projects": {
+    "kicker": "Featured Projects",
+    "title": "Selected work across mobility, robotics, and digital systems.",
+    "description": "A selection of projects spanning route planning, autonomous systems, analytics, and interface design.",
+    "loading": "Loading selected projects..."
+  },
+  "experience": {
+    "kicker": "Experience",
+    "title": "Project-driven work across autonomous shuttles, route planning, and robotics systems.",
+    "description": "This timeline reflects the systems I am actively building, from ElDrive shuttle development and ROS-connected HMIs to route planning and autonomous-driving work in Germany.",
+    "item_one": {
+      "place": "Coburg University of Applied Sciences",
+      "title": "Student Assistant | Heavy-Transport Route Planning Platform",
+      "point_one": "Building a FastAPI and SQLite workflow for transport permit extraction and route constraint storage.",
+      "point_two": "Matching permit constraints with national bridge inventory data and converting UTM coordinates to GPS.",
+      "point_three": "Developing a Leaflet.js interface with geocoding, avoid-area polygons, and bridge visualization."
+    },
+    "item_two": {
+      "place": "ElDrive Project | Bavarian Region",
+      "title": "ElDrive | Autonomous Shuttle Systems and Scrum Leadership",
+      "point_one": "Identified user needs through Human-Centered Design and created story maps plus system architecture using block, state, and activity diagrams.",
+      "point_two": "Implemented ROS 2 interfaces and core functionality across localization, path planning, trajectory control, human-machine interfaces, user authorization, and decision-making modules.",
+      "point_three": "Served as Scrum Master in a six-member agile team, documented progress in Gitea, and supported the roadmap for code reviews, testing, and deployment in Model City."
+    },
+    "item_three": {
+      "place": "Autonomous Shuttle HMI Suite",
+      "title": "ROS-Connected Interfaces for Shuttle Booking and Ride Support",
+      "point_one": "Designed external ride-booking and in-shuttle touchscreen interfaces connected live through rosbridge WebSockets.",
+      "point_two": "Applied human-centered design with Figma prototypes, user testing, and accessibility-minded interaction flows for elderly users.",
+      "point_three": "Added Jest-based validation to improve UI reliability, message handling, and end-to-end interaction clarity."
+    },
+    "item_four": {
+      "place": "Kronach, Germany",
+      "title": "M.Eng. in Autonomous Driving",
+      "point_one": "Coursework includes sensors and actuators, vehicle networking, data processing, AI, and human-machine interfaces."
+    }
+  },
+  "publication": {
+    "kicker": "Publication",
+    "title": "Research credibility alongside applied engineering work.",
+    "description": "This publication reflects the same applied AI mindset that shows up in my robotics and analytics projects.",
+    "summary": "Developed a deep-learning approach using ResNet-50 and YOLOv8 to classify and detect road surface defects for safer, more efficient maintenance decisions.",
+    "link": "Read Publication"
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Let's build mobility, robotics, and digital products with real impact.",
+    "description": "If you're hiring for autonomous driving, robotics software, interface design, or product-focused engineering, I'd be glad to connect.",
+    "location_label": "Location",
+    "email_label": "Email",
+    "linkedin_label": "LinkedIn",
+    "github_label": "GitHub"
+  },
+  "api": {
+    "kicker": "API Demo",
+    "title": "A live CRUD module that teaches FastAPI step by step.",
+    "description": "Use the form below to create, edit, and delete project entries. The UI sends JSON to FastAPI, FastAPI writes to SQLite, and the refreshed project list comes back into the browser.",
+    "method_get": {
+      "title": "Read project data",
+      "body": "The browser fetches `/api/projects` and renders the returned JSON into cards."
+    },
+    "method_post": {
+      "title": "Create a new project",
+      "body": "Submitting the form sends a JSON payload to FastAPI, which inserts a new SQLite row."
+    },
+    "method_put": {
+      "title": "Update an existing project",
+      "body": "Choosing edit loads a project into the form, then sends a PUT request with the changed values."
+    },
+    "method_delete": {
+      "title": "Remove a project",
+      "body": "Delete sends the project id to FastAPI, which removes the row and returns an empty success response."
+    },
+    "form": {
+      "title": "Create or edit a project",
+      "description": "This form sends JSON directly to your FastAPI backend.",
+      "title_en": "Title (English)",
+      "title_de": "Title (German)",
+      "summary_en": "Summary (English)",
+      "summary_de": "Summary (German)",
+      "impact_en": "Impact line (English)",
+      "impact_de": "Impact line (German)",
+      "tech_stack": "Tech stack (comma separated)",
+      "timeframe": "Timeframe",
+      "category": "Category",
+      "live_url": "Live URL",
+      "repo_url": "Repository URL",
+      "featured": "Show in featured projects",
+      "submit_create": "Create Project",
+      "submit_update": "Update Project",
+      "reset": "Reset Form"
+    },
+    "list": {
+      "title": "Project data returned by the API",
+      "description": "Each card below is rendered from JSON returned by FastAPI."
+    }
+  },
+  "dynamic": {
+    "projects": {
+      "impact_label": "Impact",
+      "live_link": "Live Demo",
+      "repo_link": "Source Code",
+      "empty": "No featured projects are available yet."
+    },
+    "api": {
+      "empty": "No projects are stored yet. Use the form to create one.",
+      "edit": "Edit",
+      "delete": "Delete",
+      "editing": "Editing selected project.",
+      "saving": "Saving project...",
+      "created": "Project created successfully.",
+      "updated": "Project updated successfully.",
+      "deleted": "Project deleted successfully.",
+      "error": "Something went wrong while communicating with the API."
+    }
+  },
+  "footer": {
+    "note": "Professional portfolio of Karthik Chowdary Nunna, focused on autonomous mobility, robotics, and software systems."
+  }
+}

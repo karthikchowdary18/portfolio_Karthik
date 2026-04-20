@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "title": "Karthik Chowdary Nunna | Portfolio",
+    "toggle_language": "Zwischen Englisch und Deutsch wechseln"
+  },
+  "nav": {
+    "about": "Ueber mich",
+    "skills": "Kompetenzen",
+    "projects": "Projekte",
+    "experience": "Erfahrung",
+    "contact": "Kontakt",
+    "connect": "Kontakt aufnehmen"
+  },
+  "hero": {
+    "eyebrow": "Autonomes Fahren - Robotik - Softwareentwicklung",
+    "title": "Intelligente Mobilitaet und hochwertige digitale Systeme entwickeln.",
+    "description": "Masterstudent in Deutschland mit Fokus auf autonomes Fahren, ROS-2-Schnittstellen, Geodatensysteme und moderne digitale Erlebnisse.",
+    "available": "Offen fuer Robotik-, Mobilitaets- und Full-Stack-Rollen.",
+    "cta_primary": "Projekte ansehen",
+    "cta_secondary": "Kontakt aufnehmen",
+    "microcopy": "Eine Verbindung aus autonomer Mobilitaet, Interaktionsdesign und produktorientierter Softwareentwicklung.",
+    "stat_one": "Autonomes Fahren an der Hochschule Coburg",
+    "stat_two": "Mensch-Maschine-Schnittstellen, Robotik und Softwaresysteme",
+    "stat_three": "Zweisprachiges Portfolio mit Live-Sprachwechsel",
+    "note_label": "Was ich baue",
+    "note_title": "Engineering mit Systemdenken und visueller Klarheit.",
+    "note_body": "Meine Arbeit verbindet Mobilitaet, Robotik, Interaktionsdesign und Software mit Produktqualitaet.",
+    "blueprint_label": "Kernstaerken",
+    "core_tag": "Profil",
+    "core_title": "Robotik + Software + Interaktion",
+    "core_body": "Ein Portfolio rund um Systemdenken, praktische Umsetzung und hochwertige digitale Erlebnisse.",
+    "node_one_title": "Autonome Mobilitaet",
+    "node_one_body": "Pfadplanung, Lokalisierung und routenbasierte Systeme fuer reale Bewegungsablaeufe.",
+    "node_two_title": "Mensch-Maschine-Schnittstellen",
+    "node_two_body": "Klare und vertrauenswuerdige Nutzererlebnisse fuer Bediener, Fahrgaeste und vernetzte Systeme.",
+    "node_three_title": "Full-Stack-Systeme",
+    "node_three_body": "Python-Services, Webplattformen und strukturierte Workflows fuer echte Produkte.",
+    "node_four_title": "Angewandte KI",
+    "node_four_body": "Analytics, Computer Vision und maschinelles Lernen fuer praktische Entscheidungen.",
+    "pedestrian_status_approaching": "Fussgaenger voraus. Das Fahrzeug bremst ab.",
+    "pedestrian_status_waiting": "Fussgaenger quert. Das Fahrzeug wartet.",
+    "signal_button": "Signal gruen",
+    "signal_status_approaching": "Rotes Signal voraus. Das Fahrzeug stoppt gleich.",
+    "signal_status_waiting": "Rotes Signal. Signal gruen oder 10 Sekunden warten.",
+    "signal_status_green": "Gruenes Signal. Fahrzeug faehrt weiter.",
+    "signal_status_auto": "Auto-Gruen. Fahrzeug faehrt weiter.",
+    "signal_countdown": "Auto-Gruen in {seconds}s",
+    "panel_label": "Aktueller Fokus",
+    "panel_intro": "Studentischer Forscher und M.Eng.-Student im autonomen Fahren an der Hochschule Coburg und zugleich Entwickler von Geodaten- und Full-Stack-Systemen mit klaren, menschenzentrierten digitalen Erlebnissen.",
+    "console_label": "Systemfokus",
+    "console_title": "Autonomer Mobilitaets-Stack",
+    "console_body": "ROS-2-Schnittstellen, Geodaten-Pipelines, APIs und datengetriebene Produkte.",
+    "stack_label": "Signalkette",
+    "stack_one": "Erfassen und kartieren",
+    "stack_two": "Planen und optimieren",
+    "stack_three": "Rendern und erklaeren",
+    "stack_four": "Liefern und deployen"
+  },
+  "band": {
+    "one": "Autonome Mobilitaet",
+    "two": "ROS-2-Mensch-Maschine-Schnittstellen",
+    "three": "Geodatensysteme",
+    "four": "Produktorientiertes Engineering",
+    "five": "Premium Digital Design"
+  },
+  "about": {
+    "kicker": "Ueber mich",
+    "title": "Software fuer Mobilitaet, Interaktion und intelligente Systeme entwickeln.",
+    "paragraph_one": "Ich arbeite an der Schnittstelle von autonomer Mobilitaet, Softwareentwicklung und nutzerzentriertem Interaktionsdesign. Mein aktueller Fokus verbindet Mensch-Maschine-Schnittstellen fuer Roboter und digitale Erlebnisse, die komplexe Technologie klar und nutzbar machen.",
+    "paragraph_two": "Neben der Robotik macht es mir Freude, komplexe industrielle und analytische Workflows in klare Interfaces zu uebersetzen, egal ob als kartengetriebene Routing-Plattform, ROS-verbundene HMI oder Dashboard mit Machine-Learning-Insights.",
+    "card_one": {
+      "eyebrow": "Mobilitaetssysteme",
+      "title": "Autonomes Fahren mit realen Randbedingungen",
+      "body": "Komponenten wie Trajektorienregler, Entscheidungslogik, HMI-Workflows und Systemintegration fuer Model-City- und autonome Shuttle-Umgebungen."
+    },
+    "card_two": {
+      "eyebrow": "Plattformen und Produkte",
+      "title": "Softwaresysteme mit klarer Frontend-Anbindung",
+      "body": "Python-Services, Daten-Workflows und Weberlebnisse, die technische Komplexitaet in nutzbare Produkte uebersetzen."
+    },
+    "card_three": {
+      "eyebrow": "Angewandte Intelligenz",
+      "title": "Analytics, KI und menschenzentrierte Entscheidungen",
+      "body": "Datenanalyse, Dashboard-Denken, Fehlerprognosen und Machine-Learning-Systeme fuer echte Nutzerinnen und Nutzer."
+    }
+  },
+  "learning": {
+    "kicker": "Fokusbereiche",
+    "title": "Was meine Arbeitsweise und meine Projekte praegt.",
+    "description": "Ich mag Projekte, in denen technische Tiefe, klare Interfaces und praktischer Nutzen zusammenkommen.",
+    "card_one": {
+      "label": "Mobilitaet",
+      "title": "Autonome Systeme mit realen Randbedingungen",
+      "body": "Ich arbeite gern an Problemen, bei denen Karten, Routing, Lokalisierung und Systemverhalten direkt mit der realen Welt verbunden sind."
+    },
+    "card_two": {
+      "label": "Interfaces",
+      "title": "Erlebnisse, denen Menschen vertrauen koennen",
+      "body": "Von Shuttle-HMIs bis zu Buchungsablaeufen achte ich auf Klarheit, Zugaenglichkeit und Sicherheit im Nutzungserlebnis."
+    },
+    "card_three": {
+      "label": "Plattformen",
+      "title": "Software, die echte Produkte traegt",
+      "body": "Ich entwickle praxisnahe Python-Systeme, strukturierte Daten-Workflows und Weberlebnisse, die verstaendlich und nuetzlich bleiben."
+    },
+    "card_four": {
+      "label": "Forschung",
+      "title": "Neugier mit klarer Umsetzung",
+      "body": "Forschung, Analytics und Experimente helfen mir dabei, Ideen in belastbare Systeme mit messbarem Nutzen zu verwandeln."
+    }
+  },
+  "skills": {
+    "kicker": "Kompetenzen",
+    "title": "Werkzeuge fuer Robotik, Websysteme und angewandte KI.",
+    "description": "Die folgenden Gruppen stammen direkt aus den Bereichen, die ich in Studium, Forschung und praktischen Projekten am staerksten einsetze.",
+    "group_one": {
+      "title": "Backend und APIs",
+      "description": "Zuverlaessige Services, Datenpipelines und Speicherung fuer Full-Stack-Systeme."
+    },
+    "group_two": {
+      "title": "Frontend und Interaktion",
+      "description": "Interfaces, die Nutzer klar mit Live-Backendsystemen verbinden."
+    },
+    "group_three": {
+      "title": "Robotik und Mobilitaet",
+      "description": "Workflows des autonomen Fahrens mit Fokus auf Sensorik, Planung und Kartenintegration."
+    },
+    "group_four": {
+      "title": "Daten und maschinelles Lernen",
+      "description": "Analyse-Pipelines und ML-Experimente, die in nutzbare Entscheidungsunterstuetzung muenden."
+    },
+    "chips": {
+      "git_version_control": "Git-Versionskontrolle",
+      "trajectory_controller": "Trajektorienregler",
+      "decision_maker": "Entscheidungslogik"
+    }
+  },
+  "projects": {
+    "kicker": "Ausgewaehlte Projekte",
+    "title": "Ausgewaehlte Arbeiten aus Mobilitaet, Robotik und digitalen Systemen.",
+    "description": "Eine Auswahl an Projekten aus Routenplanung, autonomen Systemen, Analytics und Interface-Design.",
+    "loading": "Ausgewaehlte Projekte werden geladen..."
+  },
+  "experience": {
+    "kicker": "Erfahrung",
+    "title": "Projektgetriebene Arbeit rund um autonome Shuttles, Routenplanung und Robotiksysteme.",
+    "description": "Diese Zeitleiste zeigt die Systeme, an denen ich aktuell arbeite, von der ElDrive-Shuttle-Entwicklung und ROS-verbundenen HMIs bis zur Routenplanung und zum autonomen Fahren in Deutschland.",
+    "item_one": {
+      "place": "Hochschule Coburg",
+      "title": "Studentische Hilfskraft | Plattform fuer Schwertransport-Routenplanung",
+      "point_one": "Aufbau eines FastAPI- und SQLite-Workflows fuer Genehmigungsextraktion und Speicherung von Routeneinschraenkungen.",
+      "point_two": "Abgleich von Genehmigungsdaten mit nationalen Brueckeninventaren und Umrechnung von UTM-Koordinaten in GPS.",
+      "point_three": "Entwicklung einer Leaflet.js-Oberflaeche mit Geocoding, Sperrflaechen-Polygonen und Brueckenvisualisierung."
+    },
+    "item_two": {
+      "place": "ElDrive-Projekt | Bayerische Region",
+      "title": "ElDrive | Autonome Shuttle-Systeme und Scrum-Verantwortung",
+      "point_one": "Analysierte Nutzerbeduerfnisse mit Human-Centered Design und entwickelte Story Maps sowie Systemarchitektur mit Block-, Zustands- und Aktivitaetsdiagrammen.",
+      "point_two": "Implementierte ROS-2-Schnittstellen und Kernfunktionen fuer Lokalisierung, Pfadplanung, Trajektorienregelung, Mensch-Maschine-Schnittstellen, Nutzerautorisierung und Entscheidungslogik.",
+      "point_three": "Uebernahm die Rolle des Scrum Masters in einem sechskopfigen agilen Team, dokumentierte Fortschritte in Gitea und unterstuetzte die Roadmap fuer Code Reviews, Tests und Deployment in Model City."
+    },
+    "item_three": {
+      "place": "Autonomous Shuttle HMI Suite",
+      "title": "ROS-verbundene Interfaces fuer Shuttle-Buchung und Fahrtbegleitung",
+      "point_one": "Entwicklung externer Buchungs- und interner Touchscreen-Oberflaechen mit Live-Anbindung ueber rosbridge WebSockets.",
+      "point_two": "Einsatz von Human-Centered Design mit Figma-Prototypen, Nutzertests und zugangssensiblen Interaktionsablaeufen fuer aeltere Nutzer.",
+      "point_three": "Jest-basierte Validierung zur Verbesserung von UI-Zuverlaessigkeit, Nachrichtenverarbeitung und der gesamten Interaktionsklarheit."
+    },
+    "item_four": {
+      "place": "Kronach, Deutschland",
+      "title": "M.Eng. im autonomen Fahren",
+      "point_one": "Lehrinhalte umfassen Sensoren und Aktoren, Fahrzeugvernetzung, Datenverarbeitung, KI und Mensch-Maschine-Schnittstellen."
+    }
+  },
+  "publication": {
+    "kicker": "Publikation",
+    "title": "Forschungsglaubwuerdigkeit neben angewandter Entwicklungsarbeit.",
+    "description": "Diese Publikation spiegelt dieselbe praxisnahe KI-Denkweise wider, die auch in meinen Robotik- und Analytics-Projekten sichtbar ist.",
+    "summary": "Entwickelte einen Deep-Learning-Ansatz mit ResNet-50 und YOLOv8 zur Klassifikation und Erkennung von Strassenschaeden fuer sicherere und effizientere Wartungsentscheidungen.",
+    "link": "Publikation lesen"
+  },
+  "contact": {
+    "kicker": "Kontakt",
+    "title": "Lassen Sie uns Mobilitaet, Robotik und digitale Produkte mit echter Wirkung entwickeln.",
+    "description": "Wenn Sie in den Bereichen autonomes Fahren, Robotiksoftware, Interface-Design oder produktorientierte Entwicklung einstellen, freue ich mich auf den Austausch.",
+    "location_label": "Standort",
+    "email_label": "E-Mail",
+    "linkedin_label": "LinkedIn",
+    "github_label": "GitHub"
+  },
+  "api": {
+    "kicker": "API-Demo",
+    "title": "Ein Live-CRUD-Modul, das FastAPI Schritt fuer Schritt erklaert.",
+    "description": "Nutzen Sie das Formular unten, um Projekteintraege zu erstellen, zu bearbeiten und zu loeschen. Die UI sendet JSON an FastAPI, FastAPI schreibt in SQLite, und die aktualisierte Projektliste kommt in den Browser zurueck.",
+    "method_get": {
+      "title": "Projektdaten lesen",
+      "body": "Der Browser ruft `/api/projects` ab und rendert das zurueckgegebene JSON in Karten."
+    },
+    "method_post": {
+      "title": "Neues Projekt anlegen",
+      "body": "Beim Absenden sendet das Formular ein JSON-Payload an FastAPI, das eine neue SQLite-Zeile einfuegt."
+    },
+    "method_put": {
+      "title": "Bestehendes Projekt aktualisieren",
+      "body": "Mit Bearbeiten wird ein Projekt in das Formular geladen und anschliessend per PUT mit den geaenderten Werten gesendet."
+    },
+    "method_delete": {
+      "title": "Projekt entfernen",
+      "body": "Loeschen sendet die Projekt-ID an FastAPI, das den Datensatz entfernt und eine leere Erfolgsantwort liefert."
+    },
+    "form": {
+      "title": "Projekt erstellen oder bearbeiten",
+      "description": "Dieses Formular sendet JSON direkt an Ihr FastAPI-Backend.",
+      "title_en": "Titel (Englisch)",
+      "title_de": "Titel (Deutsch)",
+      "summary_en": "Kurzbeschreibung (Englisch)",
+      "summary_de": "Kurzbeschreibung (Deutsch)",
+      "impact_en": "Impact-Zeile (Englisch)",
+      "impact_de": "Impact-Zeile (Deutsch)",
+      "tech_stack": "Tech-Stack (durch Kommas getrennt)",
+      "timeframe": "Zeitraum",
+      "category": "Kategorie",
+      "live_url": "Live-URL",
+      "repo_url": "Repository-URL",
+      "featured": "In ausgewaehlten Projekten anzeigen",
+      "submit_create": "Projekt erstellen",
+      "submit_update": "Projekt aktualisieren",
+      "reset": "Formular zuruecksetzen"
+    },
+    "list": {
+      "title": "Projektdaten aus der API",
+      "description": "Jede Karte unten wird aus JSON gerendert, das von FastAPI zurueckgegeben wird."
+    }
+  },
+  "dynamic": {
+    "projects": {
+      "impact_label": "Wirkung",
+      "live_link": "Live-Demo",
+      "repo_link": "Quellcode",
+      "empty": "Derzeit sind keine ausgewaehlten Projekte verfuegbar."
+    },
+    "api": {
+      "empty": "Es sind noch keine Projekte gespeichert. Verwenden Sie das Formular, um eines anzulegen.",
+      "edit": "Bearbeiten",
+      "delete": "Loeschen",
+      "editing": "Ausgewaehltes Projekt wird bearbeitet.",
+      "saving": "Projekt wird gespeichert...",
+      "created": "Projekt erfolgreich erstellt.",
+      "updated": "Projekt erfolgreich aktualisiert.",
+      "deleted": "Projekt erfolgreich geloescht.",
+      "error": "Bei der Kommunikation mit der API ist ein Fehler aufgetreten."
+    }
+  },
+  "footer": {
+    "note": "Professionelles Portfolio von Karthik Chowdary Nunna mit Fokus auf autonome Mobilitaet, Robotik und Softwaresysteme."
+  }
+}

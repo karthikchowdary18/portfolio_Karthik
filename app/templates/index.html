@@ -1,0 +1,532 @@
+{% extends "base.html" %} {% block content %}
+<section class="road-banner reveal">
+  <div class="hero-drive-scene hero-drive-scene--road" data-traffic-scene>
+    <div class="hero-drive-scene__route hero-drive-scene__route--main"></div>
+
+    <div class="hero-drive-scene__control">
+      <p
+        class="hero-drive-scene__status"
+        data-traffic-status
+        aria-live="polite"
+        data-i18n="hero.pedestrian_status_approaching"
+      >
+        Pedestrian approaching. The car is slowing down.
+      </p>
+      <div class="hero-drive-scene__action-row" hidden>
+        <button
+          class="hero-drive-scene__button"
+          type="button"
+          data-traffic-button
+          data-i18n="hero.signal_button"
+        >
+          Make it green
+        </button>
+        <span class="hero-drive-scene__countdown" data-traffic-countdown></span>
+      </div>
+    </div>
+
+    <span class="hero-drive-scene__yield-line" aria-hidden="true"></span>
+    <span class="hero-drive-scene__crosswalk" aria-hidden="true"></span>
+    <div class="hero-drive-scene__pedestrian-zone" aria-hidden="true">
+      <span class="hero-drive-scene__pedestrian"></span>
+    </div>
+
+    <div class="hero-drive-scene__signal" aria-hidden="true">
+      <span class="hero-drive-scene__signal-head">
+        <span
+          class="hero-drive-scene__signal-light hero-drive-scene__signal-light--red"
+        ></span>
+        <span
+          class="hero-drive-scene__signal-light hero-drive-scene__signal-light--amber"
+        ></span>
+        <span
+          class="hero-drive-scene__signal-light hero-drive-scene__signal-light--green"
+        ></span>
+      </span>
+      <span class="hero-drive-scene__signal-post"></span>
+    </div>
+    <span class="hero-drive-scene__stop-line" aria-hidden="true"></span>
+
+    <div class="hero-drive-scene__car">
+      <span class="hero-drive-scene__trail"></span>
+      <span class="hero-drive-scene__lidar"></span>
+      <span class="hero-drive-scene__body"></span>
+      <span class="hero-drive-scene__roof"></span>
+      <span class="hero-drive-scene__sensor"></span>
+      <span
+        class="hero-drive-scene__wheel hero-drive-scene__wheel--front"
+      ></span>
+      <span
+        class="hero-drive-scene__wheel hero-drive-scene__wheel--rear"
+      ></span>
+    </div>
+  </div>
+</section>
+
+<section class="hero reveal">
+  <div class="hero-copy">
+    <div class="hero-copy__topline">
+      <p class="eyebrow" data-i18n="hero.eyebrow">
+        Autonomous Driving - Robotics - Software Development
+      </p>
+    </div>
+    <h1 data-i18n="hero.title">
+      Building intelligent mobility and premium digital systems.
+    </h1>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projects" data-i18n="hero.cta_primary"
+        >View Projects</a
+      >
+      <a
+        class="btn btn-secondary"
+        href="#contact"
+        data-i18n="hero.cta_secondary"
+        >Contact Me</a
+      >
+    </div>
+
+    <p class="hero-microcopy" data-i18n="hero.microcopy">
+      Blending autonomous mobility, interaction design, and product-minded
+      software engineering.
+    </p>
+
+    <div class="hero-stats">
+      <article class="hero-stage__identity">
+        <span class="hero-panel__label" data-i18n="hero.panel_label"
+          >Current Focus</span
+        >
+        <h2>{{ profile.name }}</h2>
+        <p data-i18n="hero.panel_intro" data-i18n-preserve-en="true">
+          Student Researcher and M.Eng. Autonomous Driving @ Coburg University
+          along with building geospatial, and full-stack systems with clear,
+          human-centered digital experiences.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="signal-band reveal" aria-hidden="true">
+  <div class="signal-band__viewport">
+    <div class="signal-band__track">
+      <span data-i18n="band.one">Autonomous Mobility</span>
+      <span data-i18n="band.two">ROS 2 Human-Machine Interfaces</span>
+      <span data-i18n="band.three">Geospatial Systems</span>
+      <span data-i18n="band.four">Product-Minded Engineering</span>
+      <span data-i18n="band.five">Premium Digital Design</span>
+      <span data-i18n="band.one">Autonomous Mobility</span>
+      <span data-i18n="band.two">ROS 2 Human-Machine Interfaces</span>
+      <span data-i18n="band.three">Geospatial Systems</span>
+      <span data-i18n="band.four">Product-Minded Engineering</span>
+      <span data-i18n="band.five">Premium Digital Design</span>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="content-section reveal">
+  <div class="section-intro">
+    <p class="section-kicker" data-i18n="about.kicker">About</p>
+    <h2 data-i18n="about.title">
+      Building software for mobility, interaction, and intelligent systems.
+    </h2>
+  </div>
+
+  <div class="about-layout">
+    <div class="about-copy glass-card">
+      <p data-i18n="about.paragraph_one">
+        I work at the intersection of autonomous mobility, software engineering,
+        and user-centered interaction design. My current focus blends Human
+        Maschine Interfaces for robots,and digital experiences that make complex
+        technology feel clear and useful.
+      </p>
+      <p data-i18n="about.paragraph_two">
+        Alongside robotics, I enjoy turning complex industrial and analytical
+        workflows into clean interfaces, whether that means a map-driven routing
+        platform, a ROS-connected HMI, or a dashboard powered by machine
+        learning insights.
+      </p>
+    </div>
+
+    <div class="about-cards">
+      <article class="info-card glass-card">
+        <span class="info-card__eyebrow" data-i18n="about.card_one.eyebrow"
+          >Mobility Systems</span
+        >
+        <h3 data-i18n="about.card_one.title">
+          Autonomous driving with real-world constraints
+        </h3>
+        <p data-i18n="about.card_one.body">
+          Components like Trajectory controller, Decision Makers, HMI workflows,
+          and system integration for model-city and Autonomous shuttle
+          environments.
+        </p>
+      </article>
+      <article class="info-card glass-card">
+        <span class="info-card__eyebrow" data-i18n="about.card_two.eyebrow"
+          >Platforms and Products</span
+        >
+        <h3 data-i18n="about.card_two.title">
+          Software systems with frontend clarity
+        </h3>
+        <p data-i18n="about.card_two.body">
+          Python services, data workflows, and web experiences that translate
+          technical complexity into usable products.
+        </p>
+      </article>
+      <article class="info-card glass-card">
+        <span class="info-card__eyebrow" data-i18n="about.card_three.eyebrow"
+          >Applied Intelligence</span
+        >
+        <h3 data-i18n="about.card_three.title">
+          Analytics, AI, and human-centered decisions
+        </h3>
+        <p data-i18n="about.card_three.body">
+          Data analysis, dashboard thinking, defect prediction, and machine
+          learning systems designed for real people.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="content-section reveal">
+  <div class="section-intro">
+    <p class="section-kicker" data-i18n="learning.kicker">Focus Areas</p>
+    <h2 data-i18n="learning.title">What defines the way I work and build.</h2>
+    <p data-i18n="learning.description">
+      I enjoy projects where engineering depth, clear interfaces, and practical
+      impact all come together.
+    </p>
+  </div>
+
+  <div class="learning-grid">
+    <article class="learning-card glass-card">
+      <span class="learning-card__file" data-i18n="learning.card_one.label"
+        >Mobility</span
+      >
+      <h3 data-i18n="learning.card_one.title">
+        Autonomous systems with real constraints
+      </h3>
+      <p data-i18n="learning.card_one.body">
+        I like working on problems where maps, routing, localization, and system
+        behavior connect directly to the real world.
+      </p>
+    </article>
+    <article class="learning-card glass-card">
+      <span class="learning-card__file" data-i18n="learning.card_two.label"
+        >Interfaces</span
+      >
+      <h3 data-i18n="learning.card_two.title">Experiences people can trust</h3>
+      <p data-i18n="learning.card_two.body">
+        From shuttle HMIs to booking flows, I care about clarity, accessibility,
+        and confidence in every interaction.
+      </p>
+    </article>
+    <article class="learning-card glass-card">
+      <span class="learning-card__file" data-i18n="learning.card_three.label"
+        >Platforms</span
+      >
+      <h3 data-i18n="learning.card_three.title">
+        Software that supports real products
+      </h3>
+      <p data-i18n="learning.card_three.body">
+        I build practical Python-based systems, structured data workflows, and
+        web experiences that stay useful and understandable.
+      </p>
+    </article>
+    <article class="learning-card glass-card">
+      <span class="learning-card__file" data-i18n="learning.card_four.label"
+        >Research</span
+      >
+      <h3 data-i18n="learning.card_four.title">
+        Curiosity backed by execution
+      </h3>
+      <p data-i18n="learning.card_four.body">
+        Research, analytics, and experimentation help me turn ideas into
+        grounded systems with measurable value.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="skills" class="content-section reveal">
+  <div class="section-intro">
+    <p class="section-kicker" data-i18n="skills.kicker">Skills</p>
+    <h2 data-i18n="skills.title">
+      Tooling across robotics, web systems, and applied AI.
+    </h2>
+    <p data-i18n="skills.description">
+      The skill groups below come directly from the areas I use most in
+      coursework, research, and hands-on project delivery.
+    </p>
+  </div>
+
+  <div class="skills-grid">
+    <article class="skill-group glass-card">
+      <h3 data-i18n="skills.group_one.title">Backend and APIs</h3>
+      <p data-i18n="skills.group_one.description">
+        Reliable services, data pipelines, and storage for full-stack systems.
+      </p>
+      <ul class="chip-list">
+        <li>Python</li>
+        <li>FastAPI</li>
+        <li>REST APIs</li>
+        <li>SQLite</li>
+        <li>Pandas</li>
+        <li>NumPy</li>
+      </ul>
+    </article>
+    <article class="skill-group glass-card">
+      <h3 data-i18n="skills.group_two.title">Frontend and interaction</h3>
+      <p data-i18n="skills.group_two.description">
+        Interfaces that connect users clearly to live backend systems.
+      </p>
+      <ul class="chip-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Leaflet.js</li>
+        <li>WebSockets</li>
+        <li>Figma</li>
+        <li data-i18n="skills.chips.git_version_control">
+          Git version control
+        </li>
+      </ul>
+    </article>
+    <article class="skill-group glass-card">
+      <h3 data-i18n="skills.group_three.title">Robotics and mobility</h3>
+      <p data-i18n="skills.group_three.description">
+        Autonomous-driving workflows grounded in sensing, planning, and mapping.
+      </p>
+      <ul class="chip-list">
+        <li>ROS 2</li>
+        <li data-i18n="skills.chips.trajectory_controller">
+          Trajectory Controller
+        </li>
+        <li data-i18n="skills.chips.decision_maker">Decision Maker</li>
+        <li>OpenStreetMap</li>
+        <li>OpenRouteService</li>
+        <li>UTM to WGS84</li>
+      </ul>
+    </article>
+    <article class="skill-group glass-card">
+      <h3 data-i18n="skills.group_four.title">Data and machine learning</h3>
+      <p data-i18n="skills.group_four.description">
+        Analytics pipelines and ML experiments connected to usable decision
+        support.
+      </p>
+      <ul class="chip-list">
+        <li>SQL</li>
+        <li>scikit-learn</li>
+        <li>Streamlit</li>
+        <li>Random Forest</li>
+        <li>Computer Vision</li>
+        <li>Jest</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="projects" class="content-section reveal">
+  <div class="section-intro">
+    <p class="section-kicker" data-i18n="projects.kicker">Featured Projects</p>
+    <h2 data-i18n="projects.title">
+      Selected work across mobility, robotics, and digital systems.
+    </h2>
+    <p data-i18n="projects.description">
+      A selection of projects spanning route planning, autonomous systems,
+      analytics, and interface design.
+    </p>
+  </div>
+
+  <div id="featured-projects" class="project-grid">
+    <article class="placeholder-card glass-card">
+      <p data-i18n="projects.loading">Loading selected projects...</p>
+    </article>
+  </div>
+</section>
+
+<section id="experience" class="content-section reveal">
+  <div class="section-intro">
+    <p class="section-kicker" data-i18n="experience.kicker">Experience</p>
+    <h2 data-i18n="experience.title">
+      Project-driven work across autonomous shuttles, route planning, and robotics systems.
+    </h2>
+    <p data-i18n="experience.description">
+      This timeline reflects the systems I am actively building, from ElDrive
+      shuttle development and ROS-connected HMIs to route planning and
+      autonomous-driving work in Germany.
+    </p>
+  </div>
+
+  <div class="timeline">
+    <article class="timeline-item glass-card">
+      <div class="timeline-meta">
+        <span>2025 - Present</span>
+        <span data-i18n="experience.item_one.place"
+          >Coburg University of Applied Sciences</span
+        >
+      </div>
+      <h3 data-i18n="experience.item_one.title">
+        Student Assistant | Heavy-Transport Route Planning Platform
+      </h3>
+      <ul>
+        <li data-i18n="experience.item_one.point_one">
+          Building a FastAPI and SQLite workflow for transport permit extraction
+          and route constraint storage.
+        </li>
+        <li data-i18n="experience.item_one.point_two">
+          Matching permit constraints with national bridge inventory data and
+          converting UTM coordinates to GPS.
+        </li>
+        <li data-i18n="experience.item_one.point_three">
+          Developing a Leaflet.js interface with geocoding, avoid-area polygons,
+          and bridge visualization.
+        </li>
+      </ul>
+    </article>
+    <article class="timeline-item glass-card">
+      <div class="timeline-meta">
+        <span>2025 - 2026</span>
+        <span data-i18n="experience.item_two.place"
+          >ElDrive Project | Bavarian Region</span
+        >
+      </div>
+      <h3 data-i18n="experience.item_two.title">
+        ElDrive | Autonomous Shuttle Systems and Scrum Leadership
+      </h3>
+      <ul>
+        <li data-i18n="experience.item_two.point_one">
+          Identified user needs through Human-Centered Design and created story
+          maps plus system architecture using block, state, and activity diagrams.
+        </li>
+        <li data-i18n="experience.item_two.point_two">
+          Implemented ROS 2 interfaces and core functionality across
+          localization, path planning, trajectory control, human-machine
+          interfaces, user authorization, and decision-making modules.
+        </li>
+        <li data-i18n="experience.item_two.point_three">
+          Served as Scrum Master in a six-member agile team, documented
+          progress in Gitea, and supported the roadmap for code reviews,
+          testing, and deployment in Model City.
+        </li>
+      </ul>
+    </article>
+    <article class="timeline-item glass-card">
+      <div class="timeline-meta">
+        <span>2025 - 2026</span>
+        <span data-i18n="experience.item_three.place"
+          >Autonomous Shuttle HMI Suite</span
+        >
+      </div>
+      <h3 data-i18n="experience.item_three.title">
+        ROS-Connected Interfaces for Shuttle Booking and Ride Support
+      </h3>
+      <ul>
+        <li data-i18n="experience.item_three.point_one">
+          Designed external ride-booking and in-shuttle touchscreen interfaces
+          connected live through rosbridge WebSockets.
+        </li>
+        <li data-i18n="experience.item_three.point_two">
+          Applied human-centered design with Figma prototypes, user testing, and
+          accessibility-minded interaction flows for elderly users.
+        </li>
+        <li data-i18n="experience.item_three.point_three">
+          Added Jest-based validation to improve UI reliability, message
+          handling, and end-to-end interaction clarity.
+        </li>
+      </ul>
+    </article>
+    <article class="timeline-item glass-card">
+      <div class="timeline-meta">
+        <span>2025 - Present</span>
+        <span data-i18n="experience.item_four.place">Kronach, Germany</span>
+      </div>
+      <h3 data-i18n="experience.item_four.title">
+        M.Eng. in Autonomous Driving
+      </h3>
+      <ul>
+        <li data-i18n="experience.item_four.point_one">
+          Coursework includes sensors and actuators, vehicle networking, data
+          processing, AI, and human-machine interfaces.
+        </li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="content-section reveal">
+  <div class="section-intro">
+    <p class="section-kicker" data-i18n="publication.kicker">Publication</p>
+    <h2 data-i18n="publication.title">
+      Research credibility alongside applied engineering work.
+    </h2>
+    <p data-i18n="publication.description">
+      This publication reflects the same applied AI mindset that shows up in my
+      robotics and analytics projects.
+    </p>
+  </div>
+
+  <article class="publication-card glass-card">
+    <div>
+      <span class="publication-meta">Springer | 2024</span>
+      <h3>
+        Tackling Road Hazards: Classification and Detection of Crack and
+        Potholes Using Deep Learning
+      </h3>
+      <p data-i18n="publication.summary">
+        Developed a deep-learning approach using ResNet-50 and YOLOv8 to
+        classify and detect road surface defects for safer, more efficient
+        maintenance decisions.
+      </p>
+    </div>
+    <a
+      class="btn btn-secondary"
+      href="https://link.springer.com/chapter/10.1007/978-3-031-71388-0_9"
+      target="_blank"
+      rel="noreferrer"
+      data-i18n="publication.link"
+    >
+      Read Publication
+    </a>
+  </article>
+</section>
+
+<section id="contact" class="content-section reveal">
+  <div class="section-intro">
+    <p class="section-kicker" data-i18n="contact.kicker">Contact</p>
+    <h2 data-i18n="contact.title">
+      Let's build mobility, robotics, and digital products with real impact.
+    </h2>
+    <p data-i18n="contact.description">
+      If you're hiring for autonomous driving, robotics software, interface
+      design, or product-focused engineering, I'd be glad to connect.
+    </p>
+  </div>
+
+  <div class="contact-grid">
+    <article class="contact-card glass-card">
+      <span data-i18n="contact.location_label">Location</span>
+      <strong>{{ profile.location }}</strong>
+    </article>
+    <article class="contact-card glass-card">
+      <span data-i18n="contact.email_label">Email</span>
+      <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+    </article>
+    <article class="contact-card glass-card">
+      <span data-i18n="contact.linkedin_label">LinkedIn</span>
+      <a href="{{ profile.linkedin }}" target="_blank" rel="noreferrer"
+        >/in/karthik-chowdary-nunna</a
+      >
+    </article>
+    <article class="contact-card glass-card">
+      <span data-i18n="contact.github_label">GitHub</span>
+      <a href="{{ profile.github }}" target="_blank" rel="noreferrer"
+        >@karthikchowdary18</a
+      >
+    </article>
+  </div>
+</section>
+
+{% endblock %}

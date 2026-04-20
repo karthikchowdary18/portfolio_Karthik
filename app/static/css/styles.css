@@ -1,0 +1,5537 @@
+:root {
+    --bg: #050b16;
+    --bg-deep: #081426;
+    --surface: rgba(10, 23, 45, 0.72);
+    --surface-strong: rgba(13, 31, 59, 0.94);
+    --surface-soft: rgba(9, 20, 40, 0.56);
+    --text: #f4f7fb;
+    --muted: #95a8c6;
+    --line: rgba(146, 170, 213, 0.2);
+    --shadow: 0 24px 80px rgba(1, 5, 12, 0.45);
+    --cyan: #45d3ff;
+    --blue: #4f7cff;
+    --teal: #43f0d1;
+    --coral: #ff7b68;
+    --gold: #f4c96c;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+[id] {
+    scroll-margin-top: 7.5rem;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Aptos", "Segoe UI Variable", "Trebuchet MS", sans-serif;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(79, 124, 255, 0.22), transparent 24%),
+        radial-gradient(circle at 82% 16%, rgba(69, 211, 255, 0.18), transparent 22%),
+        radial-gradient(circle at 72% 76%, rgba(255, 123, 104, 0.14), transparent 18%),
+        linear-gradient(180deg, #08111f 0%, #060d18 42%, #040913 100%);
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    pointer-events: none;
+    opacity: 0.35;
+    z-index: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+.glass-card,
+.btn,
+.connect-button,
+.lang-toggle,
+.manager-button,
+.primary-nav a,
+.header-link,
+.project-link {
+    transition:
+        transform 0.24s ease,
+        box-shadow 0.24s ease,
+        border-color 0.24s ease,
+        background-color 0.24s ease,
+        color 0.24s ease,
+        opacity 0.24s ease;
+}
+
+.ambient {
+    position: fixed;
+    inset: auto;
+    border-radius: 999px;
+    filter: blur(42px);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+    animation: float 15s ease-in-out infinite;
+}
+
+.ambient-one {
+    top: 6rem;
+    left: -5rem;
+    width: 18rem;
+    height: 18rem;
+    background: rgba(69, 211, 255, 0.18);
+}
+
+.ambient-two {
+    top: 30rem;
+    right: -4rem;
+    width: 22rem;
+    height: 22rem;
+    background: rgba(79, 124, 255, 0.16);
+    animation-delay: -3s;
+}
+
+.ambient-three {
+    bottom: 4rem;
+    left: 30%;
+    width: 16rem;
+    height: 16rem;
+    background: rgba(255, 123, 104, 0.14);
+    animation-delay: -6s;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 1.1rem 1rem 0;
+}
+
+.site-header__inner {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0.95rem 1.2rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(5, 11, 22, 0.64);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    min-width: fit-content;
+}
+
+.brand-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    color: #04111f;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.brand-copy {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.primary-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.primary-nav a,
+.header-link {
+    position: relative;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.primary-nav a::after,
+.header-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.28rem;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.24s ease;
+}
+
+.primary-nav a:hover,
+.header-link:hover,
+.primary-nav a:focus-visible,
+.header-link:focus-visible {
+    color: var(--text);
+    transform: translateY(-1px);
+}
+
+.primary-nav a:hover::after,
+.header-link:hover::after,
+.primary-nav a:focus-visible::after,
+.header-link:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.lang-toggle,
+.connect-button,
+.btn {
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.lang-toggle,
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--line);
+    color: var(--text);
+}
+
+.lang-toggle {
+    min-width: 4rem;
+    padding: 0.75rem 0.95rem;
+    font-weight: 700;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.connect-button,
+.btn-primary {
+    background: linear-gradient(135deg, var(--cyan), var(--blue) 52%, #76a2ff);
+    background-size: 180% 180%;
+    color: #04111f;
+    box-shadow: 0 14px 34px rgba(69, 211, 255, 0.26);
+}
+
+.connect-button {
+    padding: 0.8rem 1.1rem;
+    font-weight: 700;
+}
+
+.page-shell {
+    position: relative;
+    z-index: 1;
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2rem 0 5rem;
+}
+
+.content-section,
+.hero {
+    position: relative;
+    margin-top: 1.5rem;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.9fr);
+    gap: 1.25rem;
+    min-height: calc(100vh - 8rem);
+    align-items: stretch;
+}
+
+.hero-copy,
+.hero-panel,
+.glass-card,
+.content-section {
+    background: linear-gradient(180deg, rgba(10, 23, 45, 0.88), rgba(6, 14, 28, 0.74));
+    border: 1px solid var(--line);
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+    position: relative;
+    overflow: visible;
+    isolation: isolate;
+}
+
+.glass-card::before,
+.hero-copy::before,
+.hero-panel::before,
+.content-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 28%, transparent 68%, rgba(69, 211, 255, 0.06));
+    opacity: 0.75;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-copy > *,
+.hero-panel > *,
+.glass-card > *,
+.content-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-copy,
+.hero-panel,
+.content-section {
+    padding: clamp(1.6rem, 3vw, 2.6rem);
+}
+
+.hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.eyebrow,
+.section-kicker,
+.hero-panel__label,
+.info-card__eyebrow,
+.publication-meta,
+.learning-card__file {
+    display: inline-block;
+    margin-bottom: 0.85rem;
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.hero h1,
+.section-intro h2 {
+    margin: 0;
+    font-family: Georgia, "Palatino Linotype", serif;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+}
+
+.hero h1 {
+    max-width: 11.5ch;
+    font-size: clamp(2.6rem, 5.8vw, 4.85rem);
+    text-wrap: balance;
+    hyphens: auto;
+}
+
+.lead,
+.section-intro p,
+.about-copy p,
+.info-card p,
+.learning-card p,
+.skill-group p,
+.timeline-item li,
+.publication-card p,
+.contact-card,
+.method-card p,
+.status-text {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.lead {
+    max-width: 41rem;
+    margin: 1.35rem 0 0;
+    font-size: clamp(1rem, 1.2vw, 1.14rem);
+    text-wrap: pretty;
+    hyphens: auto;
+}
+
+.section-intro p {
+    max-width: 46rem;
+    margin: 1rem 0 0;
+    text-wrap: pretty;
+    hyphens: auto;
+}
+
+.about-copy p:last-child,
+.info-card p:last-child,
+.learning-card p:last-child,
+.skill-group p:last-child,
+.method-card p:last-child,
+.publication-card p:last-child {
+    margin-bottom: 0;
+}
+
+.hero-actions,
+.form-actions {
+    display: flex;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.25rem;
+    min-height: 3.1rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.btn:hover,
+.connect-button:hover,
+.lang-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 38px rgba(69, 211, 255, 0.18);
+}
+
+.btn-primary:hover,
+.connect-button:hover {
+    background-position: 100% 50%;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    padding: 1rem;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(146, 170, 213, 0.16);
+    min-height: 100%;
+}
+
+.stat-card strong,
+.contact-card strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.hero-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    gap: 0.25rem;
+}
+
+.hero-panel h2 {
+    margin: 0;
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    line-height: 1.16;
+    text-wrap: balance;
+}
+
+.hero-highlights {
+    margin: 1.5rem 0;
+    padding-left: 1.25rem;
+    color: var(--text);
+}
+
+.hero-highlights li::marker {
+    color: var(--cyan);
+}
+
+.hero-highlights li + li {
+    margin-top: 0.85rem;
+}
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--muted);
+    margin-top: auto;
+    padding-top: 0.8rem;
+}
+
+.section-intro {
+    max-width: 58rem;
+}
+
+.section-intro h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-wrap: balance;
+    hyphens: auto;
+}
+
+.about-layout,
+.api-demo-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.about-cards,
+.learning-grid,
+.skills-grid,
+.contact-grid,
+.method-grid,
+.project-grid,
+.demo-project-list {
+    display: grid;
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.learning-grid,
+.skills-grid,
+.contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.about-cards {
+    grid-template-columns: 1fr;
+}
+
+.method-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.chip-list,
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    padding: 0;
+    margin: 1rem 0 0;
+    list-style: none;
+}
+
+.chip-list li,
+.tech-list li {
+    padding: 0.45rem 0.78rem;
+    border-radius: 999px;
+    background: rgba(69, 211, 255, 0.08);
+    border: 1px solid rgba(69, 211, 255, 0.16);
+    color: #d9f9ff;
+    font-size: 0.92rem;
+}
+
+.project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin-top: 2rem;
+}
+
+.about-copy,
+.info-card,
+.learning-card,
+.skill-group,
+.project-card,
+.placeholder-card,
+.publication-card,
+.timeline-item,
+.contact-card,
+.method-card,
+.project-form,
+.project-manager,
+.manager-card {
+    padding: 1.35rem;
+}
+
+.about-copy,
+.info-card,
+.learning-card,
+.skill-group,
+.project-card,
+.publication-card,
+.contact-card,
+.method-card,
+.project-form,
+.project-manager,
+.manager-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.glass-card:hover,
+.project-card:hover,
+.method-card:hover,
+.manager-card:hover,
+.timeline-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(69, 211, 255, 0.28);
+    box-shadow: 0 26px 70px rgba(1, 7, 18, 0.52);
+}
+
+.project-card h3,
+.info-card h3,
+.learning-card h3,
+.skill-group h3,
+.timeline-item h3,
+.publication-card h3,
+.method-card h3 {
+    margin-top: 0;
+    line-height: 1.18;
+    text-wrap: balance;
+    hyphens: auto;
+}
+
+.project-card h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.project-meta,
+.timeline-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-bottom: 0.9rem;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.meta-pill,
+.method-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(146, 170, 213, 0.16);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.method-badge {
+    margin-bottom: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.method-badge--get {
+    color: var(--teal);
+}
+
+.method-badge--post {
+    color: var(--cyan);
+}
+
+.method-badge--put {
+    color: var(--gold);
+}
+
+.method-badge--delete {
+    color: var(--coral);
+}
+
+.project-impact {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    border-radius: 18px;
+    background: rgba(79, 124, 255, 0.08);
+    border: 1px solid rgba(79, 124, 255, 0.16);
+}
+
+.project-impact span {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+    font-weight: 700;
+}
+
+.project-links,
+.manager-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.project-link {
+    color: var(--cyan);
+    font-weight: 700;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+    color: var(--text);
+}
+
+.timeline {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    bottom: 1rem;
+    left: 0.28rem;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(69, 211, 255, 0.35), rgba(255, 123, 104, 0.16));
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 1.8rem;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 1.35rem;
+    left: 0;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cyan), var(--coral));
+    box-shadow: 0 0 0 0.45rem rgba(69, 211, 255, 0.1);
+}
+
+.timeline-item ul {
+    padding-left: 1rem;
+    margin-bottom: 0;
+}
+
+.contact-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-top: 2rem;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    justify-content: center;
+    min-height: 10.5rem;
+}
+
+.contact-card span {
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.76rem;
+    font-weight: 800;
+}
+
+.method-grid {
+    margin-top: 2rem;
+}
+
+.project-form,
+.project-manager {
+    min-height: 100%;
+}
+
+.publication-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.form-heading h3 {
+    margin-bottom: 0.3rem;
+}
+
+.form-heading p {
+    margin-top: 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.form-grid__wide {
+    grid-column: 1 / -1;
+}
+
+.checkbox-field {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(146, 170, 213, 0.14);
+}
+
+.checkbox-field input {
+    margin-right: 0.55rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.92rem 1rem;
+    border-radius: 18px;
+    border: 1px solid rgba(146, 170, 213, 0.18);
+    background: rgba(3, 9, 20, 0.46);
+    color: var(--text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 7rem;
+}
+
+input:focus,
+textarea:focus,
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 2px;
+    border-color: rgba(69, 211, 255, 0.38);
+    box-shadow: 0 0 0 4px rgba(69, 211, 255, 0.08);
+}
+
+.status-text {
+    min-height: 1.5rem;
+    margin: 1rem 0 0;
+}
+
+.status-text.is-error {
+    color: #ffaea3;
+}
+
+.status-text.is-success {
+    color: #99ffe9;
+}
+
+.demo-project-list {
+    margin-top: 1.5rem;
+}
+
+.manager-card {
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(146, 170, 213, 0.14);
+    gap: 0.8rem;
+}
+
+.manager-card__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.manager-card__title {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.manager-button {
+    border: 1px solid rgba(146, 170, 213, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.55rem 0.9rem;
+    cursor: pointer;
+}
+
+.manager-button--danger {
+    border-color: rgba(255, 123, 104, 0.24);
+    color: #ffd4cd;
+}
+
+.manager-button:hover {
+    transform: translateY(-1px);
+    border-color: rgba(69, 211, 255, 0.3);
+}
+
+.manager-button--danger:hover {
+    border-color: rgba(255, 123, 104, 0.4);
+}
+
+.site-footer {
+    position: relative;
+    z-index: 1;
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto 2rem;
+    padding: 1rem 0 2rem;
+    color: var(--muted);
+    text-align: center;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal > * {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal.is-visible > *:nth-child(1) {
+    transition-delay: 0.06s;
+}
+
+.reveal.is-visible > *:nth-child(2) {
+    transition-delay: 0.16s;
+}
+
+.reveal.is-visible > *:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(0, -18px, 0) scale(1.03);
+    }
+}
+
+input,
+textarea,
+.hero-meta,
+.project-meta,
+.timeline-meta,
+.project-impact,
+.contact-card,
+.method-card,
+.manager-card,
+.project-card,
+.info-card,
+.learning-card,
+.skill-group,
+.publication-card {
+    overflow-wrap: anywhere;
+}
+
+html[lang="de"] .hero h1 {
+    max-width: 12.5ch;
+    font-size: clamp(2.35rem, 5.2vw, 4.35rem);
+}
+
+html[lang="de"] .section-intro h2 {
+    font-size: clamp(1.85rem, 4.4vw, 3.15rem);
+}
+
+html[lang="de"] .connect-button {
+    min-width: 10.75rem;
+}
+
+@media (max-width: 1180px) {
+    .method-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .site-header__inner {
+        grid-template-columns: auto 1fr;
+        border-radius: 32px;
+    }
+
+    .primary-nav {
+        grid-column: 1 / -1;
+        order: 3;
+        justify-content: flex-start;
+        padding-top: 0.25rem;
+    }
+}
+
+@media (max-width: 980px) {
+    .hero,
+    .about-layout,
+    .api-demo-grid,
+    .learning-grid,
+    .skills-grid,
+    .method-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .site-header__inner {
+        grid-template-columns: 1fr;
+        justify-items: start;
+        border-radius: 28px;
+    }
+
+    .hero h1 {
+        max-width: none;
+    }
+
+    .hero-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .publication-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .manager-card__header {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 720px) {
+    .site-header {
+        padding-inline: 0.6rem;
+    }
+
+    .page-shell,
+    .site-footer {
+        width: min(100% - 1rem, 1180px);
+    }
+
+    .primary-nav {
+        gap: 0.75rem;
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.2rem;
+    }
+
+    .brand-copy,
+    .header-link {
+        display: none;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .hero-copy,
+    .hero-panel,
+    .content-section {
+        padding: 1.4rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.25rem, 9.5vw, 3.5rem);
+        line-height: 1.1;
+    }
+
+    .section-intro h2 {
+        font-size: clamp(1.7rem, 7vw, 2.45rem);
+        line-height: 1.12;
+    }
+
+    html[lang="de"] .hero h1,
+    html[lang="de"] .section-intro h2 {
+        font-size: clamp(1.95rem, 8.5vw, 3.1rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+}
+
+/* Next-level visual system */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 40;
+    background: linear-gradient(90deg, rgba(69, 211, 255, 0.08), rgba(79, 124, 255, 0.04));
+}
+
+.scroll-progress__bar {
+    width: 100%;
+    height: 100%;
+    transform-origin: left center;
+    transform: scaleX(0);
+    background: linear-gradient(90deg, var(--cyan), var(--blue), var(--coral));
+    box-shadow: 0 0 24px rgba(69, 211, 255, 0.52);
+}
+
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(69, 211, 255, 0.18), rgba(79, 124, 255, 0.09) 42%, transparent 72%);
+    filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: screen;
+    transition: opacity 0.25s ease;
+}
+
+body.has-pointer .cursor-glow {
+    opacity: 0.9;
+}
+
+body.is-scrolled .site-header__inner {
+    background: rgba(4, 10, 20, 0.82);
+    border-color: rgba(69, 211, 255, 0.18);
+    box-shadow: 0 20px 62px rgba(1, 6, 16, 0.58);
+}
+
+.hero {
+    grid-template-columns: minmax(0, 1.06fr) minmax(360px, 0.94fr);
+    gap: 1.5rem;
+}
+
+.hero-copy {
+    min-height: clamp(36rem, 78vh, 46rem);
+    padding: clamp(1.8rem, 3.5vw, 3rem);
+    background:
+        radial-gradient(circle at top left, rgba(69, 211, 255, 0.14), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255, 123, 104, 0.1), transparent 24%),
+        linear-gradient(160deg, rgba(7, 18, 38, 0.96), rgba(5, 12, 26, 0.82));
+}
+
+.hero-copy__topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid rgba(69, 211, 255, 0.16);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.hero-availability__dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 0 rgba(67, 240, 209, 0.34);
+    animation: statusPulse 2.4s ease-in-out infinite;
+}
+
+.hero-microcopy {
+    margin: 1.25rem 0 0;
+    max-width: 32rem;
+    font-size: 0.92rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(244, 247, 251, 0.68);
+}
+
+.hero-stats {
+    margin-top: auto;
+    padding-top: 2rem;
+}
+
+.stat-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.stat-card strong {
+    font-size: 1.12rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-stage {
+    min-height: clamp(36rem, 78vh, 46rem);
+    padding: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(69, 211, 255, 0.1), transparent 40%),
+        linear-gradient(180deg, rgba(7, 16, 33, 0.98), rgba(4, 10, 22, 0.94));
+}
+
+.hero-stage::before {
+    background:
+        radial-gradient(circle at 20% 25%, rgba(69, 211, 255, 0.08), transparent 24%),
+        radial-gradient(circle at 80% 72%, rgba(255, 123, 104, 0.1), transparent 28%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 30%, transparent 70%, rgba(79, 124, 255, 0.08));
+}
+
+.hero-stage > * {
+    position: absolute;
+}
+
+.hero-stage__mesh {
+    inset: 8% 6%;
+    background-image:
+        linear-gradient(rgba(69, 211, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(69, 211, 255, 0.08) 1px, transparent 1px);
+    background-size: 2.2rem 2.2rem;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
+    opacity: 0.48;
+    transform:
+        perspective(1000px)
+        rotateX(69deg)
+        translateY(22%)
+        translate3d(calc((var(--pointer-x, 0.5) - 0.5) * 28px), calc((var(--pointer-y, 0.5) - 0.5) * 18px), 0);
+    transform-origin: center;
+}
+
+.hero-stage__orb {
+    border-radius: 50%;
+    filter: blur(10px);
+}
+
+.hero-stage__orb--one {
+    top: 9%;
+    left: 10%;
+    width: 10rem;
+    height: 10rem;
+    background: radial-gradient(circle, rgba(69, 211, 255, 0.3), transparent 70%);
+    transform: translate3d(calc((var(--pointer-x, 0.5) - 0.5) * -32px), calc((var(--pointer-y, 0.5) - 0.5) * -16px), 0);
+    animation: orbDriftOne 10s ease-in-out infinite;
+}
+
+.hero-stage__orb--two {
+    right: 7%;
+    bottom: 12%;
+    width: 13rem;
+    height: 13rem;
+    background: radial-gradient(circle, rgba(255, 123, 104, 0.28), transparent 72%);
+    transform: translate3d(calc((var(--pointer-x, 0.5) - 0.5) * 34px), calc((var(--pointer-y, 0.5) - 0.5) * 20px), 0);
+    animation: orbDriftTwo 12s ease-in-out infinite;
+}
+
+.hero-radar {
+    top: 50%;
+    left: 50%;
+    width: min(76%, 26rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid rgba(69, 211, 255, 0.18);
+    background: radial-gradient(circle at center, rgba(69, 211, 255, 0.14), rgba(69, 211, 255, 0.02) 46%, transparent 62%);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+        0 0 44px rgba(69, 211, 255, 0.1);
+    transform:
+        translate(-50%, -50%)
+        translate3d(calc((var(--pointer-x, 0.5) - 0.5) * 22px), calc((var(--pointer-y, 0.5) - 0.5) * 14px), 0);
+    overflow: hidden;
+}
+
+.hero-radar__rings,
+.hero-radar__rings::before,
+.hero-radar__rings::after {
+    content: "";
+    position: absolute;
+    inset: 12%;
+    border-radius: 50%;
+    border: 1px solid rgba(69, 211, 255, 0.16);
+}
+
+.hero-radar__rings::before {
+    inset: 24%;
+}
+
+.hero-radar__rings::after {
+    inset: 36%;
+}
+
+.hero-radar__sweep {
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(69, 211, 255, 0.36) 62deg, transparent 120deg);
+    mask-image: radial-gradient(circle at center, transparent 0 24%, black 30%);
+    -webkit-mask-image: radial-gradient(circle at center, transparent 0 24%, black 30%);
+    animation: radarSpin 6.5s linear infinite;
+    mix-blend-mode: screen;
+}
+
+.hero-radar__node {
+    position: absolute;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background: var(--text);
+    box-shadow: 0 0 0 0 rgba(69, 211, 255, 0.3);
+    animation: nodePulse 2.6s ease-in-out infinite;
+}
+
+.hero-radar__node--a {
+    top: 22%;
+    left: 66%;
+}
+
+.hero-radar__node--b {
+    top: 34%;
+    left: 24%;
+    animation-delay: -0.7s;
+}
+
+.hero-radar__node--c {
+    top: 68%;
+    left: 58%;
+    animation-delay: -1.3s;
+}
+
+.hero-radar__node--d {
+    top: 54%;
+    left: 76%;
+    animation-delay: -2s;
+}
+
+.hero-console {
+    width: min(56%, 17rem);
+    padding: 1rem 1.05rem;
+    border: 1px solid rgba(146, 170, 213, 0.18);
+    border-radius: 22px;
+    background: rgba(6, 14, 28, 0.76);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 14px 34px rgba(2, 6, 15, 0.42);
+}
+
+.hero-console--north {
+    top: 8%;
+    right: 6%;
+    transform: translate3d(calc((var(--pointer-x, 0.5) - 0.5) * 18px), calc((var(--pointer-y, 0.5) - 0.5) * 12px), 0);
+}
+
+.hero-console--south {
+    left: 7%;
+    bottom: 8%;
+    transform: translate3d(calc((var(--pointer-x, 0.5) - 0.5) * -18px), calc((var(--pointer-y, 0.5) - 0.5) * -12px), 0);
+}
+
+.hero-console__label {
+    display: inline-block;
+    margin-bottom: 0.55rem;
+    color: var(--cyan);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.hero-console strong {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-size: 1.02rem;
+    line-height: 1.2;
+}
+
+.hero-console p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.hero-stack-list {
+    display: grid;
+    gap: 0.6rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-stack-list li {
+    position: relative;
+    padding-left: 1.1rem;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.hero-stack-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cyan), var(--teal));
+}
+
+.hero-stage__identity {
+    left: 50%;
+    bottom: 7%;
+    width: min(68%, 24rem);
+    padding: 1.1rem 1.2rem 1.2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(146, 170, 213, 0.16);
+    background: linear-gradient(180deg, rgba(7, 18, 37, 0.82), rgba(4, 10, 22, 0.9));
+    backdrop-filter: blur(18px);
+    transform:
+        translateX(-50%)
+        translate3d(calc((var(--pointer-x, 0.5) - 0.5) * 10px), calc((var(--pointer-y, 0.5) - 0.5) * 10px), 0);
+}
+
+.hero-stage__identity h2 {
+    margin: 0;
+    font-size: clamp(1.7rem, 2vw, 2.2rem);
+    line-height: 1.08;
+}
+
+.hero-stage__identity p {
+    margin: 0.8rem 0 0;
+    color: var(--muted);
+}
+
+.signal-band {
+    overflow: hidden;
+    padding: 0.35rem;
+    border-radius: 999px;
+    border: 1px solid rgba(146, 170, 213, 0.14);
+    background: linear-gradient(180deg, rgba(8, 18, 36, 0.9), rgba(4, 10, 21, 0.82));
+}
+
+.signal-band__viewport {
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.signal-band__track {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+    width: max-content;
+    padding: 1rem 1.3rem;
+    animation: marquee 26s linear infinite;
+}
+
+.signal-band__track span {
+    position: relative;
+    white-space: nowrap;
+    color: rgba(244, 247, 251, 0.78);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.signal-band__track span::before {
+    content: "";
+    display: inline-block;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-right: 0.8rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cyan), var(--coral));
+    vertical-align: middle;
+}
+
+.content-section {
+    background:
+        radial-gradient(circle at top right, rgba(69, 211, 255, 0.08), transparent 24%),
+        linear-gradient(180deg, rgba(8, 18, 36, 0.9), rgba(4, 10, 22, 0.8));
+}
+
+.section-intro {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.section-intro h2 {
+    max-width: 16ch;
+}
+
+.about-cards,
+.learning-grid,
+.skills-grid,
+.method-grid,
+.project-grid,
+.contact-grid {
+    margin-top: 2.1rem;
+}
+
+.learning-card,
+.skill-group,
+.info-card,
+.method-card,
+.contact-card,
+.project-manager,
+.project-form,
+.manager-card,
+.project-card {
+    background:
+        linear-gradient(180deg, rgba(12, 25, 48, 0.88), rgba(6, 13, 27, 0.84));
+}
+
+.project-card {
+    position: relative;
+}
+
+.project-card--cyan {
+    --project-accent: rgba(69, 211, 255, 0.78);
+}
+
+.project-card--violet {
+    --project-accent: rgba(124, 124, 255, 0.74);
+}
+
+.project-card--coral {
+    --project-accent: rgba(255, 123, 104, 0.74);
+}
+
+.project-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.project-card__index {
+    font-family: Georgia, "Palatino Linotype", serif;
+    font-size: 3rem;
+    line-height: 0.9;
+    color: var(--project-accent, rgba(69, 211, 255, 0.7));
+    opacity: 0.26;
+}
+
+.project-card .meta-pill {
+    border-color: color-mix(in srgb, var(--project-accent, var(--cyan)) 28%, transparent);
+}
+
+.project-card::after {
+    content: "";
+    position: absolute;
+    right: -1.2rem;
+    bottom: -1.2rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--project-accent, rgba(69, 211, 255, 0.48)), transparent 68%);
+    filter: blur(16px);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.timeline-item,
+.publication-card {
+    background:
+        linear-gradient(180deg, rgba(11, 23, 45, 0.9), rgba(5, 11, 23, 0.86));
+}
+
+.publication-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.publication-card::after {
+    content: "";
+    position: absolute;
+    inset: auto -4rem -4rem auto;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 124, 255, 0.2), transparent 72%);
+    filter: blur(18px);
+    pointer-events: none;
+}
+
+.project-form,
+.project-manager {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-form::after,
+.project-manager::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(69, 211, 255, 0.06), transparent 30%, transparent 72%, rgba(255, 123, 104, 0.05));
+    pointer-events: none;
+}
+
+.project-form > *,
+.project-manager > * {
+    position: relative;
+    z-index: 1;
+}
+
+body.is-ready .hero-copy,
+body.is-ready .hero-stage,
+body.is-ready .signal-band {
+    animation: surfaceRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+body.is-ready .hero-stage {
+    animation-delay: 0.08s;
+}
+
+body.is-ready .signal-band {
+    animation-delay: 0.16s;
+}
+
+@keyframes statusPulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(67, 240, 209, 0.34);
+    }
+    50% {
+        box-shadow: 0 0 0 0.55rem rgba(67, 240, 209, 0);
+    }
+}
+
+@keyframes radarSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes nodePulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(69, 211, 255, 0.35);
+    }
+    50% {
+        box-shadow: 0 0 0 0.6rem rgba(69, 211, 255, 0);
+    }
+}
+
+@keyframes orbDriftOne {
+    0%,
+    100% {
+        filter: blur(10px);
+    }
+    50% {
+        filter: blur(15px);
+    }
+}
+
+@keyframes orbDriftTwo {
+    0%,
+    100% {
+        opacity: 0.84;
+    }
+    50% {
+        opacity: 0.58;
+    }
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes surfaceRise {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.985);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 1180px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-copy,
+    .hero-stage {
+        min-height: auto;
+    }
+
+    .hero-stage {
+        min-height: 40rem;
+    }
+}
+
+@media (max-width: 820px) {
+    .hero-stage {
+        min-height: 34rem;
+    }
+
+    .hero-console {
+        width: min(62%, 16rem);
+    }
+
+    .hero-stage__identity {
+        width: min(78%, 24rem);
+    }
+
+    .signal-band__track {
+        gap: 1.5rem;
+        padding-block: 0.85rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .hero-copy__topline {
+        align-items: flex-start;
+    }
+
+    .hero-availability {
+        font-size: 0.8rem;
+    }
+
+    .hero-stage {
+        min-height: 31rem;
+    }
+
+    .hero-radar {
+        width: min(82%, 22rem);
+    }
+
+    .hero-console {
+        width: min(72%, 14.5rem);
+        padding: 0.9rem;
+    }
+
+    .hero-stage__identity {
+        width: calc(100% - 2rem);
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        transform: none;
+    }
+
+    .project-card__header {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    .project-card__index {
+        font-size: 2.45rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .signal-band__track,
+    .hero-radar__sweep,
+    .hero-stage__orb,
+    .hero-availability__dot {
+        animation: none !important;
+    }
+
+    .hero-stage__mesh,
+    .hero-stage__orb--one,
+    .hero-stage__orb--two,
+    .hero-radar,
+    .hero-console--north,
+    .hero-console--south,
+    .hero-stage__identity {
+        transform: none !important;
+    }
+
+    .cursor-glow {
+        display: none;
+    }
+}
+
+/* Hero blueprint refinement */
+
+.hero h1 {
+    max-width: 12ch;
+    font-size: clamp(2.35rem, 5vw, 4.2rem);
+    line-height: 1.04;
+}
+
+html[lang="de"] .hero h1 {
+    max-width: 13.5ch;
+    font-size: clamp(2.05rem, 4.5vw, 3.75rem);
+    line-height: 1.08;
+}
+
+.hero-stage {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero-note,
+.hero-blueprint,
+.hero-stage__identity {
+    z-index: 2;
+}
+
+.hero-note {
+    top: 1.35rem;
+    left: 1.35rem;
+    width: min(17rem, calc(100% - 2.7rem));
+    padding: 1rem 1.05rem;
+    border-radius: 24px;
+    border: 1px solid rgba(69, 211, 255, 0.16);
+    background: linear-gradient(180deg, rgba(8, 19, 37, 0.94), rgba(5, 12, 24, 0.8));
+    box-shadow: 0 18px 44px rgba(2, 6, 15, 0.34);
+    transform: translate3d(calc((var(--pointer-x, 0.5) - 0.5) * 12px), calc((var(--pointer-y, 0.5) - 0.5) * 8px), 0);
+}
+
+.hero-note::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 34%, rgba(69, 211, 255, 0.08));
+    pointer-events: none;
+}
+
+.hero-note > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-note__label,
+.hero-core__tag,
+.hero-blueprint__eyebrow,
+.hero-node__step {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.hero-note__label,
+.hero-blueprint__eyebrow,
+.hero-core__tag {
+    color: var(--cyan);
+}
+
+.hero-note strong,
+.hero-core strong,
+.hero-node strong {
+    display: block;
+    line-height: 1.24;
+    text-wrap: balance;
+    hyphens: auto;
+}
+
+.hero-note strong {
+    margin: 0.45rem 0 0.5rem;
+    font-size: 1.08rem;
+}
+
+.hero-note p,
+.hero-core p,
+.hero-node p {
+    margin: 0;
+    color: var(--muted);
+    text-wrap: pretty;
+    hyphens: auto;
+}
+
+.hero-note p {
+    font-size: 0.94rem;
+    line-height: 1.62;
+}
+
+.hero-blueprint {
+    inset: 6.9rem 1.35rem 8rem;
+    border-radius: 30px;
+    border: 1px solid rgba(146, 170, 213, 0.15);
+    background: linear-gradient(180deg, rgba(7, 17, 34, 0.58), rgba(5, 12, 24, 0.2));
+    overflow: hidden;
+}
+
+.hero-blueprint::before {
+    content: "";
+    position: absolute;
+    inset: 1rem;
+    border-radius: 24px;
+    background-image:
+        linear-gradient(rgba(69, 211, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(69, 211, 255, 0.08) 1px, transparent 1px);
+    background-size: 3rem 3rem;
+    opacity: 0.28;
+    mask-image: radial-gradient(circle at center, black 42%, transparent 100%);
+}
+
+.hero-blueprint::after {
+    content: "";
+    position: absolute;
+    inset: 18% 16%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(69, 211, 255, 0.09), transparent 68%);
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+.hero-blueprint__eyebrow {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid rgba(69, 211, 255, 0.12);
+    background: rgba(7, 18, 36, 0.78);
+}
+
+.hero-blueprint__line {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(69, 211, 255, 0.06), rgba(69, 211, 255, 0.44), rgba(255, 123, 104, 0.18));
+    box-shadow: 0 0 14px rgba(69, 211, 255, 0.12);
+    transform-origin: left center;
+}
+
+.hero-blueprint__line--a {
+    width: min(22%, 8rem);
+    transform: rotate(-150deg);
+}
+
+.hero-blueprint__line--b {
+    width: min(22%, 8rem);
+    transform: rotate(-30deg);
+}
+
+.hero-blueprint__line--c {
+    width: min(22%, 8rem);
+    transform: rotate(150deg);
+}
+
+.hero-blueprint__line--d {
+    width: min(22%, 8rem);
+    transform: rotate(30deg);
+}
+
+.hero-core,
+.hero-node {
+    position: absolute;
+    border-radius: 24px;
+    border: 1px solid rgba(146, 170, 213, 0.16);
+    background: linear-gradient(180deg, rgba(10, 23, 45, 0.94), rgba(6, 13, 27, 0.84));
+    box-shadow: 0 14px 36px rgba(2, 6, 15, 0.3);
+    backdrop-filter: blur(18px);
+}
+
+.hero-core {
+    top: 50%;
+    left: 50%;
+    width: min(46%, 15rem);
+    padding: 1.1rem 1.15rem 1.2rem;
+    transform: translate(-50%, -50%) translate3d(calc((var(--pointer-x, 0.5) - 0.5) * 8px), calc((var(--pointer-y, 0.5) - 0.5) * 8px), 0);
+    box-shadow:
+        0 18px 42px rgba(2, 6, 15, 0.34),
+        0 0 0 1px rgba(69, 211, 255, 0.08),
+        0 0 26px rgba(69, 211, 255, 0.08);
+}
+
+.hero-core::after {
+    content: "";
+    position: absolute;
+    inset: auto 1.1rem 0.7rem 1.1rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(69, 211, 255, 0.42), transparent);
+}
+
+.hero-core strong {
+    margin: 0.55rem 0 0.45rem;
+    font-size: 1.16rem;
+}
+
+.hero-core p {
+    font-size: 0.94rem;
+    line-height: 1.6;
+}
+
+.hero-node {
+    width: min(38%, 11.5rem);
+    min-height: 8.6rem;
+    padding: 0.95rem 0.95rem 1rem;
+}
+
+.hero-node__step {
+    color: rgba(244, 247, 251, 0.66);
+}
+
+.hero-node strong {
+    margin: 0.45rem 0 0.4rem;
+    font-size: 1rem;
+}
+
+.hero-node p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.hero-node--a {
+    top: 3.75rem;
+    left: 1rem;
+}
+
+.hero-node--b {
+    top: 3.75rem;
+    right: 1rem;
+}
+
+.hero-node--c {
+    bottom: 1.4rem;
+    left: 1rem;
+}
+
+.hero-node--d {
+    bottom: 1.4rem;
+    right: 1rem;
+}
+
+.hero-stage__identity {
+    left: 1.35rem;
+    right: 1.35rem;
+    bottom: 1.35rem;
+    width: auto;
+    padding: 1rem 1.2rem 1.15rem;
+    border-radius: 24px;
+    transform: translate3d(calc((var(--pointer-x, 0.5) - 0.5) * 10px), calc((var(--pointer-y, 0.5) - 0.5) * 10px), 0);
+}
+
+.hero-stage__identity h2 {
+    max-width: 16ch;
+}
+
+.hero-note,
+.hero-core,
+.hero-stage__identity {
+    animation: moduleFloat 11s ease-in-out infinite;
+}
+
+.hero-core {
+    animation-duration: 9s;
+}
+
+.hero-stage__identity {
+    animation-delay: -4s;
+}
+
+@keyframes moduleFloat {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -6px;
+    }
+}
+
+@media (max-width: 980px) {
+    .hero-blueprint {
+        inset: 6.9rem 1.2rem 8rem;
+    }
+
+    .hero-node {
+        width: min(39%, 11rem);
+    }
+}
+
+@media (max-width: 820px) {
+    .hero-stage {
+        min-height: 42rem;
+        padding: 1.1rem;
+    }
+
+    .hero-note {
+        width: min(18rem, calc(100% - 2.2rem));
+        top: 1.1rem;
+        left: 1.1rem;
+    }
+
+    .hero-blueprint {
+        inset: 6.6rem 1.1rem 7.8rem;
+    }
+
+    .hero-node {
+        width: min(42%, 10.4rem);
+        min-height: 8rem;
+    }
+
+    .hero-stage__identity {
+        left: 1.1rem;
+        right: 1.1rem;
+        bottom: 1.1rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .hero h1 {
+        max-width: 13ch;
+        font-size: clamp(2.1rem, 8.2vw, 3.15rem);
+    }
+
+    html[lang="de"] .hero h1 {
+        max-width: none;
+        font-size: clamp(1.9rem, 7.6vw, 2.8rem);
+    }
+
+    .hero-stage {
+        min-height: auto;
+        display: grid;
+        gap: 1rem;
+        align-content: start;
+    }
+
+    .hero-stage__mesh {
+        inset: 0.8rem;
+        opacity: 0.18;
+    }
+
+    .hero-note,
+    .hero-blueprint,
+    .hero-stage__identity {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        transform: none;
+        animation: none;
+    }
+
+    .hero-note {
+        margin: 0;
+    }
+
+    .hero-blueprint {
+        inset: auto;
+        min-height: auto;
+        padding: 1.1rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "eyebrow eyebrow"
+            "core core"
+            "a b"
+            "c d";
+        gap: 0.85rem;
+    }
+
+    .hero-blueprint::before {
+        inset: 0.35rem;
+        border-radius: 22px;
+        mask-image: none;
+        opacity: 0.2;
+    }
+
+    .hero-blueprint::after,
+    .hero-blueprint__line {
+        display: none;
+    }
+
+    .hero-blueprint__eyebrow {
+        position: static;
+        transform: none;
+        justify-self: start;
+        grid-area: eyebrow;
+    }
+
+    .hero-core,
+    .hero-node {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .hero-core {
+        grid-area: core;
+        transform: none;
+    }
+
+    .hero-node--a {
+        grid-area: a;
+    }
+
+    .hero-node--b {
+        grid-area: b;
+    }
+
+    .hero-node--c {
+        grid-area: c;
+    }
+
+    .hero-node--d {
+        grid-area: d;
+    }
+
+    .hero-stage__identity h2 {
+        max-width: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .hero-blueprint {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "eyebrow"
+            "core"
+            "a"
+            "b"
+            "c"
+            "d";
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-note,
+    .hero-core,
+    .hero-stage__identity {
+        animation: none !important;
+    }
+}
+
+/* Hero stabilization pass */
+
+.hero {
+    align-items: stretch;
+}
+
+.hero h1 {
+    max-width: 11.5ch;
+    font-size: clamp(2.15rem, 4.4vw, 3.7rem);
+    line-height: 1.06;
+}
+
+html[lang="de"] .hero h1 {
+    max-width: 12.5ch;
+    font-size: clamp(1.95rem, 4vw, 3.2rem);
+    line-height: 1.08;
+}
+
+.hero-copy {
+    min-height: clamp(34rem, 74vh, 42rem);
+}
+
+.hero-stage {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: 1rem;
+    padding: 1.35rem;
+    min-height: clamp(34rem, 74vh, 42rem);
+    align-content: stretch;
+}
+
+.hero-stage > * {
+    position: relative;
+}
+
+.hero-stage__mesh,
+.hero-stage__orb {
+    position: absolute;
+}
+
+.hero-stage__mesh {
+    inset: 1rem;
+    opacity: 0.22;
+    transform:
+        perspective(1000px)
+        rotateX(69deg)
+        translateY(20%)
+        translate3d(calc((var(--pointer-x, 0.5) - 0.5) * 18px), calc((var(--pointer-y, 0.5) - 0.5) * 12px), 0);
+}
+
+.hero-stage__orb--one {
+    top: 4%;
+    left: 2%;
+    width: 9rem;
+    height: 9rem;
+    opacity: 0.8;
+}
+
+.hero-stage__orb--two {
+    right: 1%;
+    bottom: 12%;
+    width: 10.5rem;
+    height: 10.5rem;
+    opacity: 0.7;
+}
+
+.hero-note,
+.hero-blueprint,
+.hero-stage__identity {
+    position: relative;
+    inset: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: auto;
+    transform: none;
+    animation: none;
+}
+
+.hero-note {
+    max-width: 19rem;
+    padding: 1rem 1.05rem;
+    justify-self: start;
+}
+
+.hero-blueprint {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.12fr) minmax(0, 0.95fr);
+    grid-template-areas:
+        "eyebrow eyebrow eyebrow"
+        "a core b"
+        "c core d";
+    gap: 0.95rem;
+    align-self: stretch;
+    padding: 2.8rem 0 0;
+    border: none;
+    background: transparent;
+    overflow: visible;
+}
+
+.hero-blueprint::before {
+    inset: 0.2rem 0 0;
+    border-radius: 28px;
+    background:
+        linear-gradient(180deg, rgba(7, 18, 36, 0.78), rgba(5, 12, 24, 0.5));
+    border: 1px solid rgba(146, 170, 213, 0.12);
+    mask-image: none;
+    opacity: 1;
+}
+
+.hero-blueprint::after {
+    display: none;
+}
+
+.hero-blueprint__eyebrow {
+    position: relative;
+    grid-area: eyebrow;
+    justify-self: center;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-bottom: 0.2rem;
+}
+
+.hero-blueprint__line {
+    display: none;
+}
+
+.hero-core,
+.hero-node {
+    position: relative;
+    width: auto;
+    min-height: 0;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    transform: none;
+}
+
+.hero-core {
+    grid-area: core;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 18rem;
+    padding: 1.3rem;
+}
+
+.hero-core strong {
+    font-size: 1.18rem;
+}
+
+.hero-node {
+    padding: 1rem;
+}
+
+.hero-node--a {
+    grid-area: a;
+    align-self: end;
+}
+
+.hero-node--b {
+    grid-area: b;
+    align-self: end;
+}
+
+.hero-node--c {
+    grid-area: c;
+    align-self: start;
+}
+
+.hero-node--d {
+    grid-area: d;
+    align-self: start;
+}
+
+.hero-stage__identity {
+    padding: 1rem 1.15rem 1.15rem;
+}
+
+.hero-stage__identity h2 {
+    max-width: none;
+}
+
+@media (max-width: 1180px) {
+    .hero-stage {
+        min-height: 38rem;
+    }
+}
+
+@media (max-width: 820px) {
+    .hero-stage {
+        min-height: auto;
+    }
+
+    .hero-blueprint {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "eyebrow eyebrow"
+            "core core"
+            "a b"
+            "c d";
+        padding-top: 2.7rem;
+    }
+
+    .hero-core {
+        min-height: 0;
+    }
+}
+
+@media (max-width: 720px) {
+    .hero h1 {
+        max-width: 12.5ch;
+        font-size: clamp(2rem, 8vw, 2.9rem);
+    }
+
+    html[lang="de"] .hero h1 {
+        max-width: none;
+        font-size: clamp(1.82rem, 7.3vw, 2.55rem);
+    }
+
+    .hero-stage {
+        padding: 1rem;
+    }
+
+    .hero-note {
+        max-width: none;
+    }
+
+    .hero-blueprint {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "eyebrow"
+            "core"
+            "a"
+            "b"
+            "c"
+            "d";
+        padding-top: 2.6rem;
+    }
+
+    .hero-blueprint__eyebrow {
+        justify-self: start;
+    }
+
+    .hero-stage__orb--one,
+    .hero-stage__orb--two {
+        opacity: 0.45;
+    }
+}
+
+/* Hero autonomy motion */
+
+.hero-blueprint {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero-blueprint::before {
+    z-index: 0;
+}
+
+.hero-blueprint__eyebrow,
+.hero-core,
+.hero-node {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-drive-scene {
+    position: absolute;
+    inset: 3.4rem 1rem 1rem;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-drive-scene__route {
+    position: absolute;
+    border-radius: 999px;
+}
+
+.hero-drive-scene__route--main {
+    left: 7%;
+    right: 6%;
+    bottom: 24%;
+    height: 5.25rem;
+    overflow: hidden;
+    border: 1px solid rgba(112, 154, 226, 0.16);
+    background: linear-gradient(180deg, rgba(16, 32, 59, 0.76), rgba(6, 14, 29, 0.84));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 18px 42px rgba(1, 6, 15, 0.26);
+    transform: rotate(-8deg);
+}
+
+.hero-drive-scene__route--main::before {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: 0.8rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(69, 211, 255, 0.38), transparent);
+}
+
+.hero-drive-scene__route--main::after {
+    content: "";
+    position: absolute;
+    left: 1.2rem;
+    right: 1.2rem;
+    top: 50%;
+    height: 3px;
+    border-radius: 999px;
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(240, 247, 255, 0.96) 0 18px,
+        transparent 18px 40px
+    );
+    opacity: 0.48;
+    transform: translateY(-50%);
+    animation: laneRush 0.9s linear infinite;
+}
+
+.hero-drive-scene__route--ghost {
+    top: 12%;
+    left: 22%;
+    right: 17%;
+    height: 2.2rem;
+    border: 1px dashed rgba(69, 211, 255, 0.16);
+    background: linear-gradient(90deg, rgba(69, 211, 255, 0.05), transparent 72%);
+    opacity: 0.52;
+    transform: rotate(13deg);
+}
+
+.hero-drive-scene__scan {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(69, 211, 255, 0.64), transparent);
+    opacity: 0;
+}
+
+.hero-drive-scene__scan--one {
+    top: 24%;
+    left: 17%;
+    width: 6rem;
+    animation: telemetryShift 4.2s linear infinite;
+}
+
+.hero-drive-scene__scan--two {
+    right: 12%;
+    bottom: 20%;
+    width: 5rem;
+    animation: telemetryShift 3.4s linear infinite 1.1s;
+}
+
+.hero-drive-scene__target {
+    position: absolute;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    border: 1px solid rgba(69, 211, 255, 0.52);
+    background: radial-gradient(circle, rgba(69, 211, 255, 0.86), rgba(69, 211, 255, 0.18));
+    box-shadow: 0 0 0 0 rgba(69, 211, 255, 0.36);
+    animation: targetPing 2.8s ease-out infinite;
+}
+
+.hero-drive-scene__target--one {
+    top: 20%;
+    right: 17%;
+}
+
+.hero-drive-scene__target--two {
+    right: 27%;
+    bottom: 28%;
+    animation-delay: -0.95s;
+}
+
+.hero-drive-scene__target--three {
+    top: 34%;
+    left: 30%;
+    animation-delay: -1.7s;
+}
+
+.hero-drive-scene__car {
+    position: absolute;
+    left: 10%;
+    bottom: 28%;
+    width: 5.8rem;
+    height: 2.5rem;
+    z-index: 2;
+    filter: drop-shadow(0 12px 22px rgba(69, 211, 255, 0.24));
+    animation: autonomousCarRun 6.1s cubic-bezier(0.34, 0.03, 0.18, 0.98) infinite;
+}
+
+.hero-drive-scene__trail {
+    position: absolute;
+    left: -4.9rem;
+    top: 50%;
+    width: 5rem;
+    height: 1rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, rgba(69, 211, 255, 0.46));
+    filter: blur(6px);
+    opacity: 0.95;
+    transform: translateY(-50%);
+}
+
+.hero-drive-scene__lidar {
+    position: absolute;
+    left: 3rem;
+    top: -0.45rem;
+    width: 8.5rem;
+    height: 4.4rem;
+    background: conic-gradient(
+        from -12deg at 0 52%,
+        rgba(69, 211, 255, 0.34),
+        rgba(69, 211, 255, 0.06) 24deg,
+        transparent 54deg
+    );
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    filter: blur(1px);
+    opacity: 0.52;
+    transform-origin: 0 52%;
+    animation: lidarSweep 2.3s ease-in-out infinite;
+}
+
+.hero-drive-scene__body {
+    position: absolute;
+    left: 0.35rem;
+    right: 0.35rem;
+    bottom: 0.38rem;
+    height: 1.18rem;
+    border-radius: 1rem 1rem 0.75rem 0.75rem;
+    background: linear-gradient(135deg, #eef7ff 0%, #8bd3ff 34%, #3a5fff 100%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.52),
+        0 0 16px rgba(69, 211, 255, 0.2);
+}
+
+.hero-drive-scene__roof {
+    position: absolute;
+    left: 1.25rem;
+    right: 1.35rem;
+    top: 0.4rem;
+    height: 0.95rem;
+    border-radius: 0.8rem 0.8rem 0.45rem 0.45rem;
+    background: linear-gradient(180deg, rgba(221, 245, 255, 0.98), rgba(91, 160, 255, 0.5));
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hero-drive-scene__sensor {
+    position: absolute;
+    top: 0.36rem;
+    right: 1.05rem;
+    width: 0.82rem;
+    height: 0.18rem;
+    border-radius: 999px;
+    background: rgba(69, 211, 255, 0.96);
+    box-shadow: 0 0 14px rgba(69, 211, 255, 0.72);
+}
+
+.hero-drive-scene__wheel {
+    position: absolute;
+    bottom: 0;
+    width: 0.84rem;
+    height: 0.84rem;
+    border-radius: 50%;
+    border: 1px solid rgba(221, 235, 255, 0.18);
+    background: radial-gradient(circle at 35% 35%, #dce7f8, #0e1c37 62%);
+    animation: wheelSpin 0.72s linear infinite;
+}
+
+.hero-drive-scene__wheel--front {
+    right: 0.92rem;
+}
+
+.hero-drive-scene__wheel--rear {
+    left: 0.92rem;
+}
+
+@keyframes laneRush {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -58px 0;
+    }
+}
+
+@keyframes autonomousCarRun {
+    0% {
+        left: 8%;
+        bottom: 31%;
+        opacity: 0;
+        transform: rotate(-8deg) scale(0.96);
+    }
+    10% {
+        opacity: 1;
+    }
+    42% {
+        left: 41%;
+        bottom: 28%;
+        transform: rotate(-2deg) scale(1);
+    }
+    76% {
+        left: 69%;
+        bottom: 23%;
+        transform: rotate(3deg) scale(1);
+    }
+    100% {
+        left: 82%;
+        bottom: 25%;
+        opacity: 0.92;
+        transform: rotate(6deg) scale(0.98);
+    }
+}
+
+@keyframes lidarSweep {
+    0%,
+    100% {
+        opacity: 0.22;
+        transform: rotate(-13deg) scale(0.97);
+    }
+    50% {
+        opacity: 0.58;
+        transform: rotate(10deg) scale(1.02);
+    }
+}
+
+@keyframes targetPing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(69, 211, 255, 0.42);
+        opacity: 0.32;
+    }
+    36% {
+        opacity: 0.92;
+    }
+    100% {
+        box-shadow: 0 0 0 1.2rem rgba(69, 211, 255, 0);
+        opacity: 0.16;
+    }
+}
+
+@keyframes telemetryShift {
+    0% {
+        opacity: 0;
+        transform: translateX(-8%);
+    }
+    22% {
+        opacity: 0.62;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(20%);
+    }
+}
+
+@keyframes wheelSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 980px) {
+    .hero-drive-scene__route--main {
+        height: 4.8rem;
+        bottom: 22%;
+    }
+
+    .hero-drive-scene__car {
+        width: 5.35rem;
+        height: 2.3rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .hero-blueprint {
+        padding-top: 10.8rem;
+    }
+
+    .hero-drive-scene {
+        inset: 3.2rem 0.75rem auto;
+        height: 7.4rem;
+    }
+
+    .hero-drive-scene__route--main {
+        left: 4%;
+        right: 4%;
+        bottom: 16%;
+        height: 4.15rem;
+        transform: rotate(-4deg);
+    }
+
+    .hero-drive-scene__route--ghost {
+        top: 8%;
+        left: 22%;
+        right: 14%;
+        height: 1.8rem;
+        transform: rotate(10deg);
+    }
+
+    .hero-drive-scene__car {
+        width: 4.8rem;
+        height: 2.08rem;
+        bottom: 18%;
+        animation-duration: 5.4s;
+    }
+
+    .hero-drive-scene__lidar {
+        width: 6.6rem;
+        height: 3.4rem;
+        left: 2.55rem;
+    }
+
+    .hero-drive-scene__target--three,
+    .hero-drive-scene__scan--two {
+        display: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .hero-blueprint {
+        padding-top: 10rem;
+    }
+
+    .hero-drive-scene {
+        height: 6.8rem;
+    }
+
+    .hero-drive-scene__target {
+        width: 0.72rem;
+        height: 0.72rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-drive-scene__route--main::after,
+    .hero-drive-scene__scan,
+    .hero-drive-scene__target,
+    .hero-drive-scene__car,
+    .hero-drive-scene__lidar,
+    .hero-drive-scene__wheel {
+        animation: none !important;
+    }
+
+    .hero-drive-scene__car {
+        left: 58%;
+        bottom: 25%;
+        opacity: 1;
+        transform: rotate(3deg);
+    }
+}
+
+/* Hero motion clarity pass */
+
+.hero-blueprint {
+    grid-template-areas:
+        "eyebrow eyebrow eyebrow"
+        "scene scene scene"
+        "a core b"
+        "c core d";
+    grid-template-rows: auto 8.75rem auto auto;
+    gap: 1rem;
+    padding-top: 1.8rem;
+}
+
+.hero-blueprint__eyebrow {
+    margin-bottom: 0;
+}
+
+.hero-drive-scene {
+    position: relative;
+    grid-area: scene;
+    inset: auto;
+    height: 8.75rem;
+    margin: 0 0.55rem;
+    border-radius: 30px;
+    border: 1px solid rgba(105, 146, 220, 0.14);
+    background:
+        radial-gradient(circle at 78% 26%, rgba(69, 211, 255, 0.14), transparent 22%),
+        linear-gradient(180deg, rgba(9, 20, 39, 0.9), rgba(5, 12, 24, 0.78));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 16px 36px rgba(1, 6, 15, 0.2);
+}
+
+.hero-drive-scene::before {
+    content: "";
+    position: absolute;
+    inset: 0.65rem;
+    border-radius: 24px;
+    background-image:
+        linear-gradient(rgba(69, 211, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(69, 211, 255, 0.06) 1px, transparent 1px);
+    background-size: 2.4rem 2.4rem;
+    opacity: 0.42;
+    mask-image: linear-gradient(180deg, transparent, black 22%, black 78%, transparent);
+}
+
+.hero-drive-scene__route--main {
+    left: 4%;
+    right: 4%;
+    bottom: 1rem;
+    height: 4.7rem;
+    border-color: rgba(122, 167, 247, 0.18);
+    background:
+        linear-gradient(180deg, rgba(18, 35, 62, 0.84), rgba(7, 15, 29, 0.92));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 20px 40px rgba(1, 5, 12, 0.24);
+    transform: rotate(-4deg);
+}
+
+.hero-drive-scene__route--main::before {
+    top: 0.6rem;
+}
+
+.hero-drive-scene__route--main::after {
+    left: 0.9rem;
+    right: 0.9rem;
+    height: 4px;
+    opacity: 0.62;
+    animation-duration: 0.72s;
+}
+
+.hero-drive-scene__route--ghost {
+    top: 1rem;
+    left: 22%;
+    right: 18%;
+    height: 2rem;
+    opacity: 0.7;
+    transform: rotate(8deg);
+}
+
+.hero-drive-scene__scan--one {
+    top: 2rem;
+    left: 12%;
+    width: 8rem;
+}
+
+.hero-drive-scene__scan--two {
+    right: 10%;
+    bottom: 2.8rem;
+    width: 7rem;
+}
+
+.hero-drive-scene__target {
+    width: 1rem;
+    height: 1rem;
+}
+
+.hero-drive-scene__target--one {
+    top: 1.6rem;
+    right: 15%;
+}
+
+.hero-drive-scene__target--two {
+    right: 29%;
+    bottom: 3rem;
+}
+
+.hero-drive-scene__target--three {
+    top: 2.6rem;
+    left: 28%;
+}
+
+.hero-drive-scene__car {
+    bottom: 1.95rem;
+    width: 7rem;
+    height: 3rem;
+    animation: autonomousCarRun 4.6s linear infinite;
+}
+
+.hero-drive-scene__trail {
+    left: -6rem;
+    width: 6rem;
+    height: 1.15rem;
+    background: linear-gradient(90deg, transparent, rgba(69, 211, 255, 0.76));
+    filter: blur(9px);
+}
+
+.hero-drive-scene__lidar {
+    left: 3.7rem;
+    top: -0.65rem;
+    width: 10rem;
+    height: 5rem;
+    background: conic-gradient(
+        from -16deg at 0 54%,
+        rgba(69, 211, 255, 0.48),
+        rgba(69, 211, 255, 0.12) 28deg,
+        transparent 64deg
+    );
+    opacity: 0.74;
+}
+
+.hero-drive-scene__lidar::after {
+    content: "";
+    position: absolute;
+    left: -0.25rem;
+    top: 50%;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: rgba(69, 211, 255, 0.96);
+    box-shadow: 0 0 18px rgba(69, 211, 255, 0.86);
+    transform: translateY(-50%);
+}
+
+.hero-drive-scene__body {
+    left: 0.45rem;
+    right: 0.45rem;
+    bottom: 0.45rem;
+    height: 1.45rem;
+}
+
+.hero-drive-scene__roof {
+    left: 1.45rem;
+    right: 1.55rem;
+    top: 0.48rem;
+    height: 1.15rem;
+}
+
+.hero-drive-scene__sensor {
+    top: 0.38rem;
+    right: 1.12rem;
+    width: 0.95rem;
+}
+
+.hero-drive-scene__wheel {
+    width: 0.92rem;
+    height: 0.92rem;
+}
+
+@keyframes autonomousCarRun {
+    0% {
+        left: -6%;
+        opacity: 0;
+        transform: rotate(-5deg) scale(0.96);
+    }
+    8% {
+        opacity: 1;
+    }
+    40% {
+        left: 28%;
+        transform: rotate(-2deg) scale(1);
+    }
+    70% {
+        left: 57%;
+        transform: rotate(2deg) scale(1);
+    }
+    100% {
+        left: 84%;
+        opacity: 1;
+        transform: rotate(5deg) scale(0.98);
+    }
+}
+
+@media (max-width: 820px) {
+    .hero-blueprint {
+        grid-template-areas:
+            "eyebrow eyebrow"
+            "scene scene"
+            "core core"
+            "a b"
+            "c d";
+        grid-template-rows: auto 8rem auto auto auto;
+        padding-top: 1.75rem;
+    }
+
+    .hero-drive-scene {
+        height: 8rem;
+        margin: 0 0.2rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .hero-blueprint {
+        grid-template-areas:
+            "eyebrow"
+            "scene"
+            "core"
+            "a"
+            "b"
+            "c"
+            "d";
+        grid-template-rows: auto 7.2rem auto auto auto auto auto;
+        padding-top: 1.2rem;
+    }
+
+    .hero-drive-scene {
+        height: 7.2rem;
+        margin: 0;
+    }
+
+    .hero-drive-scene__route--main {
+        bottom: 0.75rem;
+        height: 3.85rem;
+    }
+
+    .hero-drive-scene__car {
+        width: 5.5rem;
+        height: 2.35rem;
+        bottom: 1.45rem;
+        animation-duration: 4s;
+    }
+
+    .hero-drive-scene__lidar {
+        left: 2.85rem;
+        width: 7.4rem;
+        height: 3.8rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .hero-blueprint {
+        grid-template-rows: auto 6.6rem auto auto auto auto auto;
+    }
+
+    .hero-drive-scene {
+        height: 6.6rem;
+    }
+
+    .hero-drive-scene__route--main {
+        height: 3.55rem;
+    }
+}
+
+/* Premium palette refinement */
+
+:root {
+    --bg: #0b0e12;
+    --bg-deep: #151a20;
+    --surface: rgba(22, 26, 33, 0.78);
+    --surface-strong: rgba(28, 33, 41, 0.96);
+    --surface-soft: rgba(18, 22, 28, 0.62);
+    --text: #f2eee7;
+    --muted: #aab1b8;
+    --line: rgba(236, 240, 245, 0.1);
+    --shadow: 0 28px 84px rgba(1, 3, 6, 0.42);
+    --cyan: #8fb7ae;
+    --blue: #7c8996;
+    --teal: #b6c38b;
+    --coral: #bb7c68;
+    --gold: #ceb07b;
+}
+
+body {
+    background:
+        radial-gradient(circle at 14% 18%, rgba(143, 183, 174, 0.14), transparent 24%),
+        radial-gradient(circle at 83% 14%, rgba(206, 176, 123, 0.1), transparent 20%),
+        radial-gradient(circle at 72% 78%, rgba(124, 137, 150, 0.12), transparent 18%),
+        linear-gradient(180deg, #12161b 0%, #0c1014 44%, #07090c 100%);
+}
+
+body::before {
+    opacity: 0.22;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+}
+
+.ambient {
+    opacity: 0.34;
+    filter: blur(56px);
+}
+
+.ambient-one {
+    background: rgba(143, 183, 174, 0.14);
+}
+
+.ambient-two {
+    background: rgba(124, 137, 150, 0.12);
+}
+
+.ambient-three {
+    background: rgba(187, 124, 104, 0.1);
+}
+
+.site-header__inner,
+body.is-scrolled .site-header__inner {
+    background: rgba(12, 15, 20, 0.78);
+    border-color: rgba(236, 240, 245, 0.08);
+    box-shadow: 0 20px 56px rgba(0, 0, 0, 0.36);
+}
+
+.brand-mark {
+    background: linear-gradient(145deg, #dcc7a0, #97b7ae 58%, #808d99);
+    color: #171b20;
+    box-shadow: 0 10px 28px rgba(206, 176, 123, 0.14);
+}
+
+.primary-nav a::after,
+.header-link::after {
+    background: linear-gradient(90deg, transparent, rgba(206, 176, 123, 0.82), transparent);
+}
+
+.lang-toggle,
+.btn-secondary,
+.manager-button {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(236, 240, 245, 0.1);
+}
+
+.connect-button,
+.btn-primary {
+    background: linear-gradient(135deg, #d5c19b 0%, #97b8af 56%, #7f8d98 100%);
+    color: #161a20;
+    box-shadow: 0 14px 30px rgba(206, 176, 123, 0.18);
+}
+
+.btn:hover,
+.connect-button:hover,
+.lang-toggle:hover,
+.manager-button:hover {
+    box-shadow: 0 18px 34px rgba(206, 176, 123, 0.14);
+}
+
+.glass-card,
+.hero-copy,
+.content-section,
+.hero-stage,
+.about-copy,
+.info-card,
+.learning-card,
+.skill-group,
+.project-card,
+.publication-card,
+.timeline-item,
+.contact-card,
+.project-form,
+.project-manager,
+.manager-card,
+.method-card {
+    background:
+        linear-gradient(180deg, rgba(21, 25, 31, 0.92), rgba(13, 16, 22, 0.84));
+    border-color: rgba(236, 240, 245, 0.08);
+    box-shadow: 0 22px 64px rgba(0, 0, 0, 0.34);
+}
+
+.glass-card::before,
+.hero-copy::before,
+.hero-panel::before,
+.content-section::before {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.04),
+        transparent 28%,
+        transparent 72%,
+        rgba(206, 176, 123, 0.05)
+    );
+}
+
+.eyebrow,
+.section-kicker,
+.hero-panel__label,
+.info-card__eyebrow,
+.publication-meta,
+.learning-card__file,
+.hero-note__label,
+.hero-blueprint__eyebrow,
+.hero-core__tag,
+.contact-card span {
+    color: var(--gold);
+}
+
+.hero-copy {
+    background:
+        radial-gradient(circle at top left, rgba(143, 183, 174, 0.1), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(206, 176, 123, 0.08), transparent 22%),
+        linear-gradient(160deg, rgba(18, 22, 28, 0.96), rgba(10, 12, 16, 0.86));
+}
+
+.hero-stage {
+    background:
+        radial-gradient(circle at 62% 44%, rgba(143, 183, 174, 0.08), transparent 36%),
+        linear-gradient(180deg, rgba(18, 21, 27, 0.98), rgba(9, 11, 15, 0.96));
+}
+
+.hero-stage::before {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(143, 183, 174, 0.06), transparent 24%),
+        radial-gradient(circle at 82% 74%, rgba(206, 176, 123, 0.07), transparent 26%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 30%, transparent 70%, rgba(124, 137, 150, 0.06));
+}
+
+.hero-stage__mesh {
+    opacity: 0.12;
+}
+
+.hero-stage__orb--one {
+    background: radial-gradient(circle, rgba(143, 183, 174, 0.18), transparent 72%);
+}
+
+.hero-stage__orb--two {
+    background: radial-gradient(circle, rgba(206, 176, 123, 0.16), transparent 72%);
+}
+
+.hero-availability {
+    border-color: rgba(206, 176, 123, 0.16);
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.hero-availability__dot {
+    background: var(--gold);
+}
+
+.stat-card,
+.checkbox-field {
+    background: rgba(255, 255, 255, 0.025);
+    border-color: rgba(236, 240, 245, 0.08);
+}
+
+.chip-list li,
+.tech-list li {
+    background: rgba(143, 183, 174, 0.08);
+    border-color: rgba(143, 183, 174, 0.12);
+    color: #d9e2de;
+}
+
+.project-impact {
+    background: rgba(206, 176, 123, 0.08);
+    border-color: rgba(206, 176, 123, 0.14);
+}
+
+.project-link {
+    color: #d8c19a;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+    color: #f2eee7;
+}
+
+.project-card--cyan {
+    --project-accent: rgba(143, 183, 174, 0.72);
+}
+
+.project-card--violet {
+    --project-accent: rgba(124, 137, 150, 0.72);
+}
+
+.project-card--coral {
+    --project-accent: rgba(187, 124, 104, 0.7);
+}
+
+.timeline::before {
+    background: linear-gradient(180deg, rgba(206, 176, 123, 0.28), rgba(143, 183, 174, 0.18));
+}
+
+.timeline-item::before {
+    background: linear-gradient(135deg, var(--gold), var(--cyan));
+    box-shadow: 0 0 0 0.45rem rgba(206, 176, 123, 0.08);
+}
+
+.scroll-progress {
+    background: linear-gradient(90deg, rgba(206, 176, 123, 0.06), rgba(143, 183, 174, 0.05));
+}
+
+.scroll-progress__bar {
+    background: linear-gradient(90deg, #cdb07b, #95b7ae, #7f8d98);
+    box-shadow: 0 0 18px rgba(206, 176, 123, 0.26);
+}
+
+.cursor-glow {
+    width: 16rem;
+    height: 16rem;
+    background: radial-gradient(circle, rgba(206, 176, 123, 0.14), rgba(143, 183, 174, 0.06) 42%, transparent 72%);
+    filter: blur(18px);
+}
+
+body.has-pointer .cursor-glow {
+    opacity: 0.52;
+}
+
+.signal-band {
+    border-color: rgba(236, 240, 245, 0.08);
+    background: linear-gradient(180deg, rgba(18, 22, 28, 0.92), rgba(10, 12, 16, 0.86));
+}
+
+.signal-band__viewport {
+    background: rgba(255, 255, 255, 0.018);
+}
+
+.signal-band__track span {
+    color: rgba(242, 238, 231, 0.72);
+}
+
+.signal-band__track span::before {
+    background: linear-gradient(135deg, var(--gold), var(--cyan));
+}
+
+.hero-note,
+.hero-core,
+.hero-node,
+.hero-stage__identity {
+    background: linear-gradient(180deg, rgba(24, 28, 35, 0.95), rgba(13, 16, 22, 0.9));
+    border-color: rgba(236, 240, 245, 0.08);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+}
+
+.hero-blueprint::before {
+    background: linear-gradient(180deg, rgba(18, 22, 28, 0.84), rgba(10, 12, 16, 0.62));
+    border-color: rgba(236, 240, 245, 0.08);
+}
+
+.hero-drive-scene {
+    border-color: rgba(236, 240, 245, 0.08);
+    background:
+        radial-gradient(circle at 80% 24%, rgba(206, 176, 123, 0.08), transparent 20%),
+        linear-gradient(180deg, rgba(17, 20, 25, 0.92), rgba(9, 11, 14, 0.88));
+}
+
+.hero-drive-scene::before {
+    opacity: 0.22;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.hero-drive-scene__route--main {
+    border-color: rgba(236, 240, 245, 0.08);
+    background: linear-gradient(180deg, rgba(34, 37, 42, 0.96), rgba(15, 18, 23, 0.96));
+}
+
+.hero-drive-scene__route--main::before {
+    background: linear-gradient(90deg, transparent, rgba(206, 176, 123, 0.26), transparent);
+}
+
+.hero-drive-scene__route--ghost {
+    border-color: rgba(143, 183, 174, 0.12);
+    background: linear-gradient(90deg, rgba(143, 183, 174, 0.04), transparent 72%);
+}
+
+.hero-drive-scene__scan {
+    background: linear-gradient(90deg, transparent, rgba(206, 176, 123, 0.42), transparent);
+}
+
+.hero-drive-scene__target {
+    border-color: rgba(206, 176, 123, 0.48);
+    background: radial-gradient(circle, rgba(206, 176, 123, 0.8), rgba(143, 183, 174, 0.16));
+    box-shadow: 0 0 0 0 rgba(206, 176, 123, 0.3);
+}
+
+.hero-drive-scene__car {
+    filter: drop-shadow(0 12px 18px rgba(206, 176, 123, 0.14));
+}
+
+.hero-drive-scene__trail {
+    background: linear-gradient(90deg, transparent, rgba(206, 176, 123, 0.32));
+}
+
+.hero-drive-scene__lidar {
+    background: conic-gradient(
+        from -16deg at 0 54%,
+        rgba(143, 183, 174, 0.34),
+        rgba(206, 176, 123, 0.08) 28deg,
+        transparent 64deg
+    );
+}
+
+.hero-drive-scene__lidar::after,
+.hero-drive-scene__sensor {
+    background: rgba(206, 176, 123, 0.92);
+    box-shadow: 0 0 16px rgba(206, 176, 123, 0.54);
+}
+
+.hero-drive-scene__body {
+    background: linear-gradient(135deg, #efe5d5 0%, #cab38f 42%, #6f756f 100%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.42),
+        0 0 12px rgba(206, 176, 123, 0.12);
+}
+
+.hero-drive-scene__roof {
+    background: linear-gradient(180deg, rgba(239, 229, 213, 0.94), rgba(158, 166, 162, 0.42));
+}
+
+    @keyframes targetPing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(206, 176, 123, 0.34);
+        opacity: 0.3;
+    }
+    36% {
+        opacity: 0.84;
+    }
+    100% {
+        box-shadow: 0 0 0 1.2rem rgba(206, 176, 123, 0);
+        opacity: 0.12;
+    }
+}
+
+/* Traffic interaction */
+
+.hero-drive-scene {
+    isolation: isolate;
+}
+
+.hero-drive-scene__control,
+.hero-drive-scene__signal,
+.hero-drive-scene__car {
+    z-index: 4;
+}
+
+.hero-drive-scene__control {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.95rem;
+    display: grid;
+    gap: 0.55rem;
+    max-width: 18.5rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(236, 240, 245, 0.08);
+    background: linear-gradient(180deg, rgba(16, 19, 24, 0.88), rgba(10, 12, 16, 0.82));
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(10px);
+}
+
+.hero-drive-scene__status,
+.hero-drive-scene__countdown {
+    margin: 0;
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.hero-drive-scene__status {
+    color: rgba(242, 238, 231, 0.9);
+    line-height: 1.45;
+}
+
+.hero-drive-scene__action-row {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.hero-drive-scene__button,
+.hero-drive-scene__countdown {
+    border-radius: 999px;
+    border: 1px solid rgba(236, 240, 245, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+}
+
+.hero-drive-scene__button {
+    padding: 0.5rem 0.8rem;
+    color: #171b20;
+    background: linear-gradient(135deg, #d5c19b 0%, #97b8af 56%, #7f8d98 100%);
+    font-size: 0.78rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 22px rgba(206, 176, 123, 0.16);
+    opacity: 0;
+    transform: translateY(4px);
+    pointer-events: none;
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.hero-drive-scene.is-awaiting-input .hero-drive-scene__button {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    animation: ctaPulse 1.8s ease-in-out infinite;
+}
+
+.hero-drive-scene__button:hover,
+.hero-drive-scene__button:focus-visible {
+    box-shadow: 0 14px 24px rgba(206, 176, 123, 0.22);
+    filter: brightness(1.02);
+}
+
+.hero-drive-scene__button:disabled {
+    opacity: 0;
+    transform: translateY(4px);
+    pointer-events: none;
+    animation: none;
+}
+
+.hero-drive-scene__countdown {
+    padding: 0.45rem 0.7rem;
+    color: rgba(242, 238, 231, 0.8);
+    min-height: 2rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.hero-drive-scene__signal {
+    position: absolute;
+    left: 76%;
+    bottom: 1.38rem;
+    display: grid;
+    justify-items: center;
+    gap: 0;
+    z-index: 6;
+}
+
+.hero-drive-scene__signal::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.32rem;
+    width: 0.22rem;
+    height: 2.4rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(236, 240, 245, 0.3), rgba(236, 240, 245, 0.06));
+    transform: translateX(-50%);
+}
+
+.hero-drive-scene__signal::after {
+    content: "";
+    position: absolute;
+    left: -3rem;
+    right: -1rem;
+    bottom: -0.18rem;
+    height: 0.3rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(242, 238, 231, 0.86), rgba(242, 238, 231, 0.08));
+    opacity: 0.85;
+}
+
+.hero-drive-scene__signal-head {
+    display: grid;
+    gap: 0.36rem;
+    padding: 0.48rem 0.42rem;
+    border-radius: 0.95rem;
+    border: 1px solid rgba(236, 240, 245, 0.08);
+    background: linear-gradient(180deg, rgba(29, 32, 38, 0.96), rgba(12, 14, 18, 0.96));
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.26);
+}
+
+.hero-drive-scene__signal-post {
+    width: 0.28rem;
+    height: 1.9rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(236, 240, 245, 0.24), rgba(236, 240, 245, 0.06));
+}
+
+.hero-drive-scene__signal-light {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0.3;
+}
+
+.hero-drive-scene__signal-light--red {
+    background: rgba(255, 84, 84, 0.28);
+}
+
+.hero-drive-scene__signal-light--amber {
+    background: rgba(255, 194, 84, 0.18);
+}
+
+.hero-drive-scene__signal-light--green {
+    background: rgba(78, 219, 125, 0.18);
+}
+
+.hero-drive-scene:not(.is-green) .hero-drive-scene__signal-light--red {
+    opacity: 1;
+    background: rgba(255, 84, 84, 0.96);
+    box-shadow: 0 0 22px rgba(255, 84, 84, 0.72);
+    transform: scale(1.04);
+}
+
+.hero-drive-scene.is-green .hero-drive-scene__signal-light--red {
+    opacity: 0.2;
+    box-shadow: none;
+}
+
+.hero-drive-scene.is-green .hero-drive-scene__signal-light--green {
+    opacity: 1;
+    background: rgba(78, 219, 125, 0.96);
+    box-shadow: 0 0 22px rgba(78, 219, 125, 0.64);
+    transform: scale(1.04);
+}
+
+.hero-drive-scene__route--main::after,
+.hero-drive-scene__wheel {
+    animation-play-state: running;
+}
+
+.hero-drive-scene__car {
+    left: -12%;
+    opacity: 0;
+    transform: rotate(-5deg) scale(0.96);
+    transition:
+        left 3.2s cubic-bezier(0.36, 0.04, 0.18, 0.98),
+        bottom 3.2s cubic-bezier(0.36, 0.04, 0.18, 0.98),
+        transform 3.2s cubic-bezier(0.36, 0.04, 0.18, 0.98),
+        opacity 0.45s ease;
+    animation: none;
+}
+
+.hero-drive-scene.is-entering .hero-drive-scene__car {
+    left: 48%;
+    bottom: 1.96rem;
+    opacity: 1;
+    transform: rotate(-1deg) scale(1);
+}
+
+.hero-drive-scene.is-green .hero-drive-scene__car {
+    left: 84%;
+    bottom: 1.72rem;
+    opacity: 1;
+    transform: rotate(4deg) scale(0.98);
+    transition-duration: 3s;
+    transition-timing-function: linear;
+}
+
+.hero-drive-scene.is-awaiting-input .hero-drive-scene__route--main::after,
+.hero-drive-scene.is-awaiting-input .hero-drive-scene__wheel {
+    animation-play-state: paused;
+}
+
+.hero-drive-scene.is-awaiting-input .hero-drive-scene__trail {
+    opacity: 0.1;
+}
+
+.hero-drive-scene.is-awaiting-input .hero-drive-scene__car {
+    filter: drop-shadow(0 12px 18px rgba(187, 124, 104, 0.12));
+}
+
+.hero-drive-scene.is-awaiting-input .hero-drive-scene__lidar {
+    opacity: 0.24;
+}
+
+.hero-drive-scene.is-green .hero-drive-scene__trail {
+    opacity: 0.95;
+}
+
+@keyframes ctaPulse {
+    0%,
+    100% {
+        box-shadow: 0 10px 22px rgba(206, 176, 123, 0.16);
+    }
+    50% {
+        box-shadow: 0 14px 28px rgba(206, 176, 123, 0.28);
+    }
+}
+
+@media (max-width: 720px) {
+    .hero-drive-scene__control {
+        top: 0.7rem;
+        left: 0.75rem;
+        max-width: 14.2rem;
+    }
+
+    .hero-drive-scene__status,
+    .hero-drive-scene__countdown,
+    .hero-drive-scene__button {
+        font-size: 0.68rem;
+    }
+
+    .hero-drive-scene__signal {
+        left: 74%;
+        bottom: 1.08rem;
+    }
+
+    .hero-drive-scene.is-entering .hero-drive-scene__car {
+        left: 44%;
+        bottom: 1.5rem;
+    }
+
+    .hero-drive-scene.is-green .hero-drive-scene__car {
+        left: 81%;
+        bottom: 1.32rem;
+    }
+
+    .hero-drive-scene__signal-head {
+        padding: 0.38rem 0.34rem;
+    }
+
+    .hero-drive-scene__signal-light {
+        width: 0.72rem;
+        height: 0.72rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .hero-drive-scene__control {
+        max-width: 13rem;
+    }
+
+    .hero-drive-scene__countdown {
+        padding-inline: 0.55rem;
+    }
+
+    .hero-drive-scene__signal {
+        left: 73%;
+        bottom: 1rem;
+    }
+
+    .hero-drive-scene__status {
+        font-size: 0.64rem;
+    }
+
+    .hero-drive-scene.is-entering .hero-drive-scene__car {
+        left: 42%;
+    }
+
+    .hero-drive-scene.is-green .hero-drive-scene__car {
+        left: 79%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-drive-scene__button {
+        transition: none;
+    }
+
+    .hero-drive-scene.is-awaiting-input .hero-drive-scene__button {
+        animation: none;
+    }
+}
+
+/* Traffic clarity refinements */
+
+.hero-drive-scene {
+    height: 9.4rem;
+}
+
+.hero-drive-scene__control {
+    top: 0.65rem;
+    left: 0.75rem;
+    right: 8.1rem;
+    max-width: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem;
+    padding: 0.7rem 0.8rem;
+}
+
+.hero-drive-scene__status {
+    flex: 1;
+    max-width: 20rem;
+    font-size: 0.82rem;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.35;
+}
+
+.hero-drive-scene__action-row {
+    flex-shrink: 0;
+}
+
+.hero-drive-scene__action-row[hidden] {
+    display: none;
+}
+
+.hero-drive-scene__button {
+    padding: 0.48rem 0.82rem;
+    font-size: 0.76rem;
+}
+
+.hero-drive-scene__countdown {
+    font-size: 0.75rem;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.hero-drive-scene__countdown:empty {
+    display: none;
+}
+
+.hero-drive-scene__route--ghost,
+.hero-drive-scene__scan,
+.hero-drive-scene__target {
+    display: none;
+}
+
+.hero-drive-scene__route--main {
+    left: 2.8%;
+    right: 2.8%;
+    bottom: 0.9rem;
+    height: 4.15rem;
+    border-radius: 2.6rem;
+    transform: none;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 16px 26px rgba(0, 0, 0, 0.22);
+}
+
+.hero-drive-scene__route--main::before {
+    top: 0.7rem;
+    left: 1.1rem;
+    right: 1.1rem;
+}
+
+.hero-drive-scene__route--main::after {
+    left: 1.2rem;
+    right: 1.2rem;
+    height: 3px;
+    opacity: 0.56;
+    animation-duration: 1.05s;
+}
+
+.hero-drive-scene__stop-line {
+    position: absolute;
+    right: 6.05rem;
+    bottom: 0.95rem;
+    width: 0.32rem;
+    height: 4rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.42));
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.18);
+    z-index: 5;
+}
+
+.hero-drive-scene__signal {
+    right: 1.45rem;
+    left: auto;
+    bottom: 0.8rem;
+}
+
+.hero-drive-scene__signal::before {
+    height: 2.7rem;
+}
+
+.hero-drive-scene__signal::after {
+    left: -3.1rem;
+    right: -1.1rem;
+    bottom: 0;
+}
+
+.hero-drive-scene__signal-head {
+    gap: 0.44rem;
+    padding: 0.54rem 0.46rem;
+    border-radius: 1rem;
+}
+
+.hero-drive-scene__signal-light {
+    width: 1rem;
+    height: 1rem;
+}
+
+.hero-drive-scene__signal-light--red {
+    background: rgba(255, 70, 70, 0.3);
+}
+
+.hero-drive-scene__signal-light--green {
+    background: rgba(88, 235, 124, 0.18);
+}
+
+.hero-drive-scene:not(.is-green) .hero-drive-scene__signal-light--red {
+    background: rgb(255, 59, 59);
+    box-shadow:
+        0 0 0 2px rgba(255, 59, 59, 0.16),
+        0 0 26px rgba(255, 59, 59, 0.82);
+}
+
+.hero-drive-scene.is-green .hero-drive-scene__signal-light--green {
+    background: rgb(76, 234, 118);
+    box-shadow:
+        0 0 0 2px rgba(76, 234, 118, 0.12),
+        0 0 26px rgba(76, 234, 118, 0.74);
+}
+
+.hero-drive-scene__car {
+    width: 6.35rem;
+    height: 2.7rem;
+    bottom: 1.55rem;
+    transition:
+        left 4.1s cubic-bezier(0.34, 0.08, 0.18, 0.98),
+        bottom 4.1s cubic-bezier(0.34, 0.08, 0.18, 0.98),
+        transform 4.1s cubic-bezier(0.34, 0.08, 0.18, 0.98),
+        opacity 0.45s ease;
+}
+
+.hero-drive-scene__body {
+    height: 1.35rem;
+}
+
+.hero-drive-scene__roof {
+    height: 1.05rem;
+}
+
+.hero-drive-scene__lidar {
+    width: 7rem;
+    height: 3.6rem;
+    left: 3.15rem;
+    top: -0.3rem;
+    opacity: 0.4;
+}
+
+.hero-drive-scene__trail {
+    width: 4.6rem;
+    left: -4.6rem;
+}
+
+.hero-drive-scene.is-entering .hero-drive-scene__car {
+    left: 54%;
+    bottom: 1.52rem;
+    transform: rotate(0deg) scale(1);
+}
+
+.hero-drive-scene.is-resetting .hero-drive-scene__car {
+    left: -12%;
+    bottom: 1.55rem;
+    opacity: 0;
+    transform: rotate(-5deg) scale(0.96);
+    transition: none;
+}
+
+.hero-drive-scene.is-awaiting-input .hero-drive-scene__car {
+    filter: drop-shadow(0 10px 16px rgba(255, 59, 59, 0.12));
+}
+
+.hero-drive-scene.is-awaiting-input .hero-drive-scene__lidar {
+    opacity: 0.12;
+}
+
+.hero-drive-scene.is-resetting .hero-drive-scene__trail,
+.hero-drive-scene.is-resetting .hero-drive-scene__lidar {
+    opacity: 0;
+}
+
+.hero-drive-scene.is-green .hero-drive-scene__car {
+    left: 88%;
+    bottom: 1.44rem;
+    transform: rotate(2deg) scale(0.985);
+    transition-duration: 3.8s;
+}
+
+@media (max-width: 820px) {
+    .hero-drive-scene {
+        height: 8.8rem;
+    }
+
+    .hero-drive-scene__status {
+        max-width: 15rem;
+        font-size: 0.76rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .hero-drive-scene {
+        height: 7.9rem;
+    }
+
+    .hero-drive-scene__control {
+        left: 0.65rem;
+        right: 6.2rem;
+        gap: 0.7rem;
+        padding: 0.58rem 0.65rem;
+    }
+
+    .hero-drive-scene__status {
+        max-width: 10.5rem;
+        font-size: 0.66rem;
+    }
+
+    .hero-drive-scene__button,
+    .hero-drive-scene__countdown {
+        font-size: 0.64rem;
+    }
+
+    .hero-drive-scene__route--main {
+        height: 3.45rem;
+        bottom: 0.78rem;
+    }
+
+    .hero-drive-scene__stop-line {
+        right: 4.75rem;
+        height: 3.28rem;
+        bottom: 0.84rem;
+    }
+
+    .hero-drive-scene__signal {
+        right: 0.7rem;
+        left: auto;
+        bottom: 0.55rem;
+    }
+
+    .hero-drive-scene__signal-light {
+        width: 0.82rem;
+        height: 0.82rem;
+    }
+
+    .hero-drive-scene__car {
+        width: 5.2rem;
+        height: 2.25rem;
+        bottom: 1.24rem;
+    }
+
+    .hero-drive-scene__lidar {
+        width: 5.4rem;
+        height: 2.8rem;
+        left: 2.6rem;
+        top: -0.22rem;
+    }
+
+    .hero-drive-scene.is-entering .hero-drive-scene__car {
+        left: 50%;
+        bottom: 1.2rem;
+    }
+
+    .hero-drive-scene.is-green .hero-drive-scene__car {
+        left: 86%;
+        bottom: 1.14rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .hero-drive-scene__control {
+        flex-direction: column;
+        align-items: flex-start;
+        right: 5.4rem;
+    }
+
+    .hero-drive-scene__status {
+        max-width: none;
+    }
+
+    .hero-drive-scene__signal {
+        right: 0.52rem;
+        left: auto;
+    }
+
+    .hero-drive-scene__stop-line {
+        right: 4.3rem;
+    }
+
+    .hero-drive-scene.is-entering .hero-drive-scene__car {
+        left: 48%;
+    }
+
+    .hero-drive-scene.is-green .hero-drive-scene__car {
+        left: 84%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-drive-scene__stop-line {
+        box-shadow: none;
+    }
+}
+
+/* Full-width road banner */
+
+.road-banner {
+    position: relative;
+    margin-top: 1rem;
+}
+
+.road-banner .hero-drive-scene {
+    position: relative;
+    min-height: 13.8rem;
+    border-radius: 34px;
+    border: 1px solid rgba(146, 170, 213, 0.18);
+    background:
+        radial-gradient(circle at 14% 16%, rgba(244, 201, 108, 0.08), transparent 20%),
+        radial-gradient(circle at 82% 24%, rgba(79, 124, 255, 0.1), transparent 22%),
+        linear-gradient(180deg, rgba(10, 17, 28, 0.96), rgba(5, 10, 17, 0.92));
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.road-banner .hero-drive-scene::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 18%),
+        radial-gradient(circle at 50% 105%, rgba(244, 201, 108, 0.08), transparent 36%);
+    pointer-events: none;
+}
+
+.road-banner .hero-drive-scene__control,
+.road-banner .hero-drive-scene__signal,
+.road-banner .hero-drive-scene__car,
+.road-banner .hero-drive-scene__pedestrian-zone,
+.road-banner .hero-drive-scene__crosswalk,
+.road-banner .hero-drive-scene__yield-line,
+.road-banner .hero-drive-scene__stop-line {
+    z-index: 4;
+}
+
+.road-banner .hero-drive-scene__control {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: min(37rem, calc(100% - 18rem));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem;
+    padding: 0.9rem 1rem;
+    border-radius: 1.15rem;
+    border: 1px solid rgba(236, 240, 245, 0.08);
+    background: linear-gradient(180deg, rgba(16, 19, 24, 0.88), rgba(10, 12, 16, 0.82));
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(14px);
+}
+
+.road-banner .hero-drive-scene__status {
+    flex: 1;
+    margin: 0;
+    color: rgba(242, 238, 231, 0.92);
+    font-size: 0.96rem;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.35;
+    text-wrap: pretty;
+}
+
+.road-banner .hero-drive-scene__action-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.road-banner .hero-drive-scene__button {
+    padding: 0.56rem 0.96rem;
+    font-size: 0.79rem;
+    white-space: nowrap;
+}
+
+.road-banner .hero-drive-scene__countdown {
+    padding: 0.5rem 0.82rem;
+    min-height: 2.15rem;
+    font-size: 0.76rem;
+    letter-spacing: 0;
+    text-transform: none;
+    white-space: nowrap;
+}
+
+.road-banner .hero-drive-scene__route--main {
+    left: 1.1rem;
+    right: 1.1rem;
+    bottom: 1.1rem;
+    height: 5.65rem;
+    border-radius: 999px;
+    transform: none;
+    background: linear-gradient(180deg, rgba(27, 32, 40, 0.96), rgba(14, 18, 24, 0.98));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 18px 28px rgba(0, 0, 0, 0.22);
+}
+
+.road-banner .hero-drive-scene__route--main::before {
+    top: 0.95rem;
+    left: 2rem;
+    right: 2rem;
+}
+
+.road-banner .hero-drive-scene__route--main::after {
+    left: 2rem;
+    right: 2rem;
+    height: 4px;
+    opacity: 0.58;
+    animation-duration: 1.08s;
+}
+
+.road-banner .hero-drive-scene__yield-line,
+.road-banner .hero-drive-scene__stop-line {
+    position: absolute;
+    bottom: 1.18rem;
+    width: 0.34rem;
+    height: 5.5rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.4));
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.14);
+}
+
+.road-banner .hero-drive-scene__yield-line {
+    left: 34.8%;
+}
+
+.road-banner .hero-drive-scene__crosswalk {
+    position: absolute;
+    left: 37.2%;
+    bottom: 1.2rem;
+    width: 2.45rem;
+    height: 5.45rem;
+    border-radius: 1.1rem;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent),
+        repeating-linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.96) 0 0.42rem,
+            rgba(255, 255, 255, 0) 0.42rem 0.82rem
+        );
+    opacity: 0.88;
+    box-shadow: 0 0 22px rgba(255, 255, 255, 0.08);
+}
+
+.road-banner .hero-drive-scene__pedestrian-zone {
+    position: absolute;
+    left: calc(37.2% + 1.22rem);
+    top: 2.15rem;
+    width: 1.8rem;
+    height: 5.55rem;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.road-banner .hero-drive-scene__pedestrian {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 0.34rem;
+    height: 1.15rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #f5f1e8, #c9d6ea);
+    transform: translateX(-50%) scale(0.86);
+    opacity: 0;
+    filter: drop-shadow(0 0 10px rgba(244, 247, 251, 0.18));
+}
+
+.road-banner .hero-drive-scene__pedestrian::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -0.42rem;
+    width: 0.56rem;
+    height: 0.56rem;
+    border-radius: 50%;
+    background: #f7f3ec;
+    transform: translateX(-50%);
+}
+
+.road-banner .hero-drive-scene__pedestrian::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0.72rem;
+    width: 0.92rem;
+    height: 1.05rem;
+    border-left: 0.14rem solid rgba(247, 243, 236, 0.92);
+    border-right: 0.14rem solid rgba(247, 243, 236, 0.92);
+    transform: translateX(-50%) rotate(8deg);
+}
+
+.road-banner .hero-drive-scene__signal {
+    right: 2.2rem;
+    left: auto;
+    bottom: 1rem;
+    z-index: 6;
+}
+
+.road-banner .hero-drive-scene__signal::before {
+    height: 3rem;
+}
+
+.road-banner .hero-drive-scene__signal::after {
+    left: -3.8rem;
+    right: -1.2rem;
+}
+
+.road-banner .hero-drive-scene__signal-head {
+    gap: 0.44rem;
+    padding: 0.56rem 0.48rem;
+    border-radius: 1rem;
+}
+
+.road-banner .hero-drive-scene__signal-light {
+    width: 1rem;
+    height: 1rem;
+}
+
+.road-banner .hero-drive-scene__stop-line {
+    right: 8.15rem;
+}
+
+.road-banner .hero-drive-scene__car {
+    width: 7rem;
+    height: 3rem;
+    bottom: 1.92rem;
+    left: -12%;
+    opacity: 0;
+    transform: rotate(-4deg) scale(0.96);
+    transition:
+        left 2.9s cubic-bezier(0.35, 0.08, 0.18, 0.98),
+        bottom 2.9s cubic-bezier(0.35, 0.08, 0.18, 0.98),
+        transform 2.9s cubic-bezier(0.35, 0.08, 0.18, 0.98),
+        opacity 0.45s ease;
+}
+
+.road-banner .hero-drive-scene__body {
+    height: 1.45rem;
+}
+
+.road-banner .hero-drive-scene__roof {
+    height: 1.08rem;
+}
+
+.road-banner .hero-drive-scene__lidar {
+    width: 8.8rem;
+    height: 4.4rem;
+    left: 3.45rem;
+    top: -0.42rem;
+    opacity: 0.34;
+}
+
+.road-banner .hero-drive-scene__trail {
+    width: 5.3rem;
+    left: -5.3rem;
+}
+
+.road-banner .hero-drive-scene.is-heading-pedestrian .hero-drive-scene__car {
+    left: 27.8%;
+    bottom: 1.92rem;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__car {
+    left: 27.8%;
+    bottom: 1.92rem;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 10px 16px rgba(244, 201, 108, 0.12));
+}
+
+.road-banner .hero-drive-scene.is-heading-signal .hero-drive-scene__car,
+.road-banner .hero-drive-scene.is-awaiting-input .hero-drive-scene__car {
+    left: 69.2%;
+    bottom: 1.84rem;
+    opacity: 1;
+    transform: rotate(1deg) scale(0.995);
+}
+
+.road-banner .hero-drive-scene.is-green .hero-drive-scene__car {
+    left: 104%;
+    bottom: 1.76rem;
+    opacity: 1;
+    transform: rotate(2deg) scale(0.985);
+    transition-duration: 3.35s;
+    transition-timing-function: linear;
+}
+
+.road-banner .hero-drive-scene.is-resetting .hero-drive-scene__car {
+    left: -12%;
+    bottom: 1.92rem;
+    opacity: 0;
+    transform: rotate(-4deg) scale(0.96);
+    transition: none;
+}
+
+.road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__pedestrian {
+    opacity: 1;
+    animation: roadPedestrianCross 3s ease-in-out forwards;
+}
+
+.road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__crosswalk,
+.road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__yield-line {
+    box-shadow:
+        0 0 0 1px rgba(244, 201, 108, 0.12),
+        0 0 22px rgba(244, 201, 108, 0.16);
+}
+
+.road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__route--main::after,
+.road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__wheel,
+.road-banner .hero-drive-scene.is-awaiting-input .hero-drive-scene__route--main::after,
+.road-banner .hero-drive-scene.is-awaiting-input .hero-drive-scene__wheel {
+    animation-play-state: paused;
+}
+
+.road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__trail,
+.road-banner .hero-drive-scene.is-awaiting-input .hero-drive-scene__trail {
+    opacity: 0.12;
+}
+
+.road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__lidar {
+    opacity: 0.18;
+}
+
+.road-banner .hero-drive-scene.is-green .hero-drive-scene__trail {
+    opacity: 0.95;
+}
+
+.road-banner .hero-drive-scene.is-resetting .hero-drive-scene__trail,
+.road-banner .hero-drive-scene.is-resetting .hero-drive-scene__lidar,
+.road-banner .hero-drive-scene.is-resetting .hero-drive-scene__pedestrian {
+    opacity: 0;
+    animation: none;
+}
+
+@keyframes roadPedestrianCross {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(0.86);
+        opacity: 0;
+    }
+    12% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) translateY(2.25rem) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(4.55rem) scale(0.9);
+        opacity: 0.2;
+    }
+}
+
+@media (max-width: 980px) {
+    .road-banner .hero-drive-scene__control {
+        width: calc(100% - 14rem);
+    }
+
+    .road-banner .hero-drive-scene__status {
+        font-size: 0.88rem;
+    }
+
+    .road-banner .hero-drive-scene__yield-line {
+        left: 36.8%;
+    }
+
+    .road-banner .hero-drive-scene__crosswalk {
+        left: 39.7%;
+    }
+
+    .road-banner .hero-drive-scene__pedestrian-zone {
+        left: calc(39.7% + 1.22rem);
+    }
+
+    .road-banner .hero-drive-scene.is-heading-pedestrian .hero-drive-scene__car,
+    .road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__car {
+        left: 30.8%;
+    }
+
+    .road-banner .hero-drive-scene.is-heading-signal .hero-drive-scene__car,
+    .road-banner .hero-drive-scene.is-awaiting-input .hero-drive-scene__car {
+        left: 67%;
+    }
+}
+
+@media (max-width: 760px) {
+    .road-banner .hero-drive-scene {
+        min-height: 12.8rem;
+    }
+
+    .road-banner .hero-drive-scene__control {
+        width: calc(100% - 10.4rem);
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.55rem;
+    }
+
+    .road-banner .hero-drive-scene__status {
+        font-size: 0.8rem;
+    }
+
+    .road-banner .hero-drive-scene__button,
+    .road-banner .hero-drive-scene__countdown {
+        font-size: 0.66rem;
+    }
+
+    .road-banner .hero-drive-scene__route--main {
+        height: 4.8rem;
+        bottom: 1rem;
+    }
+
+    .road-banner .hero-drive-scene__yield-line,
+    .road-banner .hero-drive-scene__stop-line {
+        height: 4.7rem;
+    }
+
+    .road-banner .hero-drive-scene__yield-line {
+        left: 38.6%;
+    }
+
+    .road-banner .hero-drive-scene__crosswalk {
+        left: 41.6%;
+        width: 2rem;
+        height: 4.6rem;
+    }
+
+    .road-banner .hero-drive-scene__pedestrian-zone {
+        left: calc(41.6% + 1rem);
+        top: 2.7rem;
+        height: 4.65rem;
+    }
+
+    .road-banner .hero-drive-scene__signal {
+        right: 1rem;
+    }
+
+    .road-banner .hero-drive-scene__stop-line {
+        right: 5.3rem;
+    }
+
+    .road-banner .hero-drive-scene__car {
+        width: 5.8rem;
+        height: 2.5rem;
+        bottom: 1.7rem;
+    }
+
+    .road-banner .hero-drive-scene__lidar {
+        width: 6.5rem;
+        height: 3.4rem;
+        left: 2.8rem;
+        top: -0.22rem;
+    }
+
+    .road-banner .hero-drive-scene.is-heading-pedestrian .hero-drive-scene__car,
+    .road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__car {
+        left: 31.5%;
+        bottom: 1.68rem;
+    }
+
+    .road-banner .hero-drive-scene.is-heading-signal .hero-drive-scene__car,
+    .road-banner .hero-drive-scene.is-awaiting-input .hero-drive-scene__car {
+        left: 62.5%;
+        bottom: 1.62rem;
+    }
+
+    .road-banner .hero-drive-scene.is-green .hero-drive-scene__car {
+        left: 103%;
+        bottom: 1.58rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .road-banner .hero-drive-scene {
+        min-height: 12rem;
+    }
+
+    .road-banner .hero-drive-scene__control {
+        top: 0.7rem;
+        left: 0.7rem;
+        width: calc(100% - 1.4rem);
+        padding: 0.7rem 0.78rem;
+    }
+
+    .road-banner .hero-drive-scene__status {
+        font-size: 0.72rem;
+    }
+
+    .road-banner .hero-drive-scene__action-row {
+        gap: 0.45rem;
+    }
+
+    .road-banner .hero-drive-scene__button,
+    .road-banner .hero-drive-scene__countdown {
+        font-size: 0.61rem;
+    }
+
+    .road-banner .hero-drive-scene__route--main {
+        left: 0.75rem;
+        right: 0.75rem;
+    }
+
+    .road-banner .hero-drive-scene__yield-line {
+        left: 41%;
+    }
+
+    .road-banner .hero-drive-scene__crosswalk {
+        left: 44.6%;
+        width: 1.7rem;
+    }
+
+    .road-banner .hero-drive-scene__pedestrian-zone {
+        left: calc(44.6% + 0.85rem);
+    }
+
+    .road-banner .hero-drive-scene__signal {
+        right: 0.72rem;
+        bottom: 0.9rem;
+    }
+
+    .road-banner .hero-drive-scene__signal-light {
+        width: 0.82rem;
+        height: 0.82rem;
+    }
+
+    .road-banner .hero-drive-scene__stop-line {
+        right: 4.6rem;
+    }
+
+    .road-banner .hero-drive-scene__car {
+        width: 5rem;
+        height: 2.2rem;
+    }
+
+    .road-banner .hero-drive-scene__lidar {
+        width: 5.4rem;
+        height: 2.8rem;
+        left: 2.4rem;
+    }
+
+    .road-banner .hero-drive-scene.is-heading-pedestrian .hero-drive-scene__car,
+    .road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__car {
+        left: 30%;
+    }
+
+    .road-banner .hero-drive-scene.is-heading-signal .hero-drive-scene__car,
+    .road-banner .hero-drive-scene.is-awaiting-input .hero-drive-scene__car {
+        left: 58%;
+    }
+}
+
+/* Professional hero layout */
+
+.hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+}
+
+.hero-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1.18fr) minmax(19rem, 0.82fr);
+    grid-template-areas:
+        "topline topline"
+        "title card"
+        "lead card"
+        "actions card"
+        "microcopy card";
+    align-items: start;
+    column-gap: clamp(1.75rem, 4vw, 3.25rem);
+    row-gap: 1rem;
+    min-height: auto;
+    padding: clamp(1.75rem, 3.6vw, 3rem);
+    overflow: hidden;
+}
+
+.hero-copy::after {
+    content: "";
+    position: absolute;
+    right: 6%;
+    top: 16%;
+    width: 22rem;
+    height: 22rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(69, 211, 255, 0.08), transparent 68%);
+    filter: blur(18px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-copy__topline {
+    grid-area: topline;
+    margin-bottom: 0.35rem;
+}
+
+.hero-copy > h1 {
+    grid-area: title;
+    max-width: 9.2ch;
+    margin: 0;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 0.97;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+}
+
+.hero-copy > .lead {
+    grid-area: lead;
+    max-width: 37rem;
+    margin: 0;
+    font-size: 1.03rem;
+    line-height: 1.85;
+}
+
+.hero-actions {
+    grid-area: actions;
+    margin-top: 0.4rem;
+}
+
+.hero-microcopy {
+    grid-area: microcopy;
+    max-width: 34rem;
+    margin: 0.15rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    letter-spacing: 0.08em;
+    color: rgba(244, 247, 251, 0.6);
+}
+
+.hero-stats {
+    grid-area: card;
+    display: block;
+    margin: 0;
+    padding: 0;
+    align-self: start;
+    max-width: min(24rem, 100%);
+}
+
+.hero-stats > .hero-stage__identity {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    min-height: auto;
+    margin: 0;
+    padding: 0.2rem 0 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.hero-stats > .hero-stage__identity::before {
+    display: none;
+}
+
+.hero-stats > .hero-stage__identity > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-stats > .hero-stage__identity h2 {
+    max-width: 8ch;
+    margin: 0.3rem 0 0;
+    font-size: clamp(2.1rem, 2.7vw, 2.8rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.hero-stats > .hero-stage__identity p {
+    max-width: 28ch;
+    margin: 0.85rem 0 0;
+    font-size: 0.96rem;
+    line-height: 1.72;
+    color: rgba(244, 247, 251, 0.74);
+}
+
+.hero-stats > .hero-stage__identity .hero-meta {
+    display: grid;
+    gap: 0.45rem;
+    margin-top: auto;
+    padding-top: 0.95rem;
+    border-top: 1px solid rgba(146, 170, 213, 0.12);
+}
+
+.hero-stats > .hero-stage__identity .hero-meta span,
+.hero-stats > .hero-stage__identity .hero-meta a {
+    display: block;
+    min-height: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: rgba(244, 247, 251, 0.7);
+    overflow-wrap: anywhere;
+}
+
+.hero-stats > .hero-stage__identity .hero-meta a:hover,
+.hero-stats > .hero-stage__identity .hero-meta a:focus-visible {
+    color: var(--text);
+}
+
+@media (max-width: 1024px) {
+    .hero-copy {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "topline"
+            "title"
+            "lead"
+            "actions"
+            "microcopy"
+            "card";
+    }
+
+    .hero-copy > h1 {
+        max-width: 10ch;
+    }
+
+    .hero-stats {
+        max-width: 30rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .hero-copy {
+        row-gap: 0.9rem;
+        padding: 1.4rem 1.2rem;
+    }
+
+    .hero-copy > h1 {
+        max-width: none;
+        font-size: clamp(2.55rem, 12vw, 4rem);
+    }
+
+    .hero-copy > .lead {
+        font-size: 0.98rem;
+        line-height: 1.72;
+    }
+
+    .hero-stats {
+        max-width: none;
+    }
+
+    .hero-stats > .hero-stage__identity {
+        padding-top: 0.1rem;
+    }
+
+    .hero-stats > .hero-stage__identity h2 {
+        max-width: 10ch;
+        font-size: clamp(1.85rem, 8vw, 2.45rem);
+    }
+
+    .hero-stats > .hero-stage__identity p {
+        max-width: none;
+        font-size: 0.94rem;
+    }
+}
+
+/* Final responsive layout stabilization */
+
+html,
+body {
+    max-width: 100%;
+}
+
+body {
+    overflow-x: clip;
+}
+
+.page-shell > *,
+.content-section > *,
+.hero-copy > *,
+.about-layout > *,
+.about-cards > *,
+.learning-grid > *,
+.skills-grid > *,
+.project-grid > *,
+.contact-grid > *,
+.timeline > * {
+    min-width: 0;
+}
+
+.primary-nav,
+.header-actions,
+.hero-actions,
+.chip-list,
+.tech-list,
+.project-links,
+.timeline-meta,
+.contact-card,
+.publication-card {
+    row-gap: 0.75rem;
+}
+
+.contact-card a,
+.project-link,
+.header-link,
+.hero-stats > .hero-stage__identity .hero-meta a {
+    overflow-wrap: anywhere;
+}
+
+.primary-nav {
+    scrollbar-width: none;
+}
+
+.primary-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.hero-copy > h1,
+.section-intro h2,
+.timeline-item h3,
+.project-card h3,
+.publication-card h3 {
+    overflow-wrap: anywhere;
+}
+
+.road-banner .hero-drive-scene__status {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 1100px) {
+    .site-header {
+        padding-inline: 0.8rem;
+    }
+
+    .site-header__inner {
+        width: 100%;
+        grid-template-columns: 1fr;
+        justify-items: start;
+        border-radius: 28px;
+        padding: 1rem 1.05rem;
+    }
+
+    .brand,
+    .primary-nav,
+    .header-actions {
+        width: 100%;
+    }
+
+    .primary-nav {
+        order: 2;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 1rem;
+        overflow-x: auto;
+        padding-bottom: 0.2rem;
+    }
+
+    .header-actions {
+        order: 3;
+        justify-content: flex-start;
+    }
+
+    .hero-copy {
+        grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.82fr);
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .about-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .publication-card {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 900px) {
+    .page-shell,
+    .site-footer {
+        width: min(100% - 1.5rem, 1180px);
+    }
+
+    .road-banner .hero-drive-scene {
+        min-height: 14.5rem;
+    }
+
+    .road-banner .hero-drive-scene__control {
+        top: 0.9rem;
+        left: 0.9rem;
+        width: calc(100% - 1.8rem);
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0.65rem;
+        padding: 0.8rem 0.9rem;
+    }
+
+    .road-banner .hero-drive-scene__status {
+        max-width: none;
+        font-size: 0.84rem;
+        line-height: 1.45;
+    }
+
+    .road-banner .hero-drive-scene__action-row {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .road-banner .hero-drive-scene__route--main {
+        left: 0.9rem;
+        right: 0.9rem;
+        bottom: 0.95rem;
+        height: 4.95rem;
+    }
+
+    .road-banner .hero-drive-scene__yield-line,
+    .road-banner .hero-drive-scene__stop-line {
+        height: 4.8rem;
+    }
+
+    .road-banner .hero-drive-scene__yield-line {
+        left: 41.5%;
+    }
+
+    .road-banner .hero-drive-scene__crosswalk {
+        left: 45%;
+        width: 1.95rem;
+        height: 4.75rem;
+    }
+
+    .road-banner .hero-drive-scene__pedestrian-zone {
+        left: calc(45% + 0.98rem);
+        top: 3rem;
+        height: 4.7rem;
+    }
+
+    .road-banner .hero-drive-scene__signal {
+        right: 0.95rem;
+        bottom: 0.92rem;
+    }
+
+    .road-banner .hero-drive-scene__stop-line {
+        right: 5.2rem;
+    }
+
+    .road-banner .hero-drive-scene__car {
+        width: 5.85rem;
+        height: 2.55rem;
+        bottom: 1.62rem;
+    }
+
+    .road-banner .hero-drive-scene__lidar {
+        width: 6rem;
+        height: 3rem;
+        left: 2.75rem;
+        top: -0.2rem;
+    }
+
+    .road-banner .hero-drive-scene.is-heading-pedestrian .hero-drive-scene__car,
+    .road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__car {
+        left: 31%;
+        bottom: 1.62rem;
+    }
+
+    .road-banner .hero-drive-scene.is-heading-signal .hero-drive-scene__car,
+    .road-banner .hero-drive-scene.is-awaiting-input .hero-drive-scene__car {
+        left: 61%;
+        bottom: 1.56rem;
+    }
+
+    .hero-copy {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "topline"
+            "title"
+            "actions"
+            "microcopy"
+            "card";
+        row-gap: 1rem;
+        padding: 1.55rem 1.35rem;
+    }
+
+    .hero-copy > h1 {
+        max-width: 11ch;
+        font-size: clamp(2.75rem, 8vw, 4.15rem);
+    }
+
+    .hero-stats {
+        max-width: 100%;
+    }
+
+    .hero-stats > .hero-stage__identity h2,
+    .hero-stats > .hero-stage__identity p {
+        max-width: none;
+    }
+
+    .about-cards,
+    .learning-grid,
+    .skills-grid,
+    .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .timeline::before {
+        left: 0.22rem;
+    }
+
+    .timeline-item {
+        padding-left: 1.5rem;
+    }
+
+    .publication-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .publication-card .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 680px) {
+    [id] {
+        scroll-margin-top: 9rem;
+    }
+
+    .site-header {
+        padding: 0.65rem 0.65rem 0;
+    }
+
+    .site-header__inner {
+        gap: 0.85rem;
+        padding: 0.9rem;
+        border-radius: 24px;
+    }
+
+    .brand {
+        gap: 0.7rem;
+    }
+
+    .brand-mark {
+        width: 2.35rem;
+        height: 2.35rem;
+        font-size: 0.88rem;
+    }
+
+    .brand-copy {
+        font-size: 0.88rem;
+        letter-spacing: 0.1em;
+    }
+
+    .primary-nav a,
+    .header-link,
+    .lang-toggle,
+    .connect-button {
+        font-size: 0.92rem;
+    }
+
+    .header-actions {
+        gap: 0.65rem;
+    }
+
+    .lang-toggle {
+        min-width: 3.4rem;
+        padding: 0.68rem 0.82rem;
+    }
+
+    .connect-button {
+        padding: 0.72rem 1rem;
+    }
+
+    .page-shell,
+    .site-footer {
+        width: min(100% - 1rem, 1180px);
+    }
+
+    .content-section,
+    .hero-copy {
+        border-radius: 24px;
+    }
+
+    .content-section,
+    .hero-copy,
+    .about-copy,
+    .info-card,
+    .learning-card,
+    .skill-group,
+    .project-card,
+    .publication-card,
+    .timeline-item,
+    .contact-card {
+        padding: 1.15rem;
+    }
+
+    .road-banner {
+        margin-top: 0.85rem;
+    }
+
+    .road-banner .hero-drive-scene {
+        min-height: 13.8rem;
+        border-radius: 24px;
+    }
+
+    .road-banner .hero-drive-scene__control {
+        top: 0.72rem;
+        left: 0.72rem;
+        width: calc(100% - 1.44rem);
+        padding: 0.72rem 0.76rem;
+    }
+
+    .road-banner .hero-drive-scene__status {
+        font-size: 0.76rem;
+    }
+
+    .road-banner .hero-drive-scene__button,
+    .road-banner .hero-drive-scene__countdown {
+        min-height: 2rem;
+        font-size: 0.64rem;
+    }
+
+    .road-banner .hero-drive-scene__route--main {
+        left: 0.72rem;
+        right: 0.72rem;
+        bottom: 0.78rem;
+        height: 4.55rem;
+    }
+
+    .road-banner .hero-drive-scene__yield-line,
+    .road-banner .hero-drive-scene__stop-line {
+        height: 4.35rem;
+    }
+
+    .road-banner .hero-drive-scene__yield-line {
+        left: 42.5%;
+    }
+
+    .road-banner .hero-drive-scene__crosswalk {
+        left: 46.5%;
+        width: 1.6rem;
+        height: 4.25rem;
+    }
+
+    .road-banner .hero-drive-scene__pedestrian-zone {
+        left: calc(46.5% + 0.8rem);
+        top: 3.35rem;
+        height: 4.1rem;
+    }
+
+    .road-banner .hero-drive-scene__signal {
+        right: 0.72rem;
+        bottom: 0.72rem;
+    }
+
+    .road-banner .hero-drive-scene__signal-head {
+        padding: 0.42rem;
+        gap: 0.34rem;
+    }
+
+    .road-banner .hero-drive-scene__signal-light {
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+
+    .road-banner .hero-drive-scene__stop-line {
+        right: 4.15rem;
+    }
+
+    .road-banner .hero-drive-scene__car {
+        width: 4.9rem;
+        height: 2.1rem;
+        bottom: 1.45rem;
+    }
+
+    .road-banner .hero-drive-scene__lidar {
+        width: 5rem;
+        height: 2.55rem;
+        left: 2.2rem;
+        top: -0.16rem;
+    }
+
+    .road-banner .hero-drive-scene.is-heading-pedestrian .hero-drive-scene__car,
+    .road-banner .hero-drive-scene.is-pedestrian-active .hero-drive-scene__car {
+        left: 29%;
+        bottom: 1.43rem;
+    }
+
+    .road-banner .hero-drive-scene.is-heading-signal .hero-drive-scene__car,
+    .road-banner .hero-drive-scene.is-awaiting-input .hero-drive-scene__car {
+        left: 56%;
+        bottom: 1.38rem;
+    }
+
+    .road-banner .hero-drive-scene.is-green .hero-drive-scene__car {
+        left: 102%;
+        bottom: 1.32rem;
+    }
+
+    .hero-copy {
+        padding: 1.3rem 1.15rem;
+    }
+
+    .hero-copy > h1 {
+        max-width: none;
+        font-size: clamp(2.35rem, 11vw, 3.35rem);
+        line-height: 1.01;
+    }
+
+    html[lang="de"] .hero-copy > h1 {
+        font-size: clamp(2.05rem, 10vw, 3rem);
+    }
+
+    .hero-actions {
+        gap: 0.7rem;
+    }
+
+    .hero-actions .btn {
+        flex: 1 1 12rem;
+    }
+
+    .hero-microcopy {
+        font-size: 0.74rem;
+        letter-spacing: 0.06em;
+    }
+
+    .hero-stats > .hero-stage__identity h2 {
+        font-size: clamp(1.8rem, 8vw, 2.35rem);
+    }
+
+    .hero-stats > .hero-stage__identity p {
+        font-size: 0.92rem;
+        line-height: 1.64;
+    }
+
+    .section-intro h2 {
+        font-size: clamp(1.85rem, 9vw, 2.55rem);
+    }
+
+    html[lang="de"] .section-intro h2 {
+        font-size: clamp(1.7rem, 8.2vw, 2.35rem);
+    }
+
+    .about-cards,
+    .learning-grid,
+    .skills-grid,
+    .project-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        gap: 0.85rem;
+    }
+
+    .timeline-item {
+        padding-left: 1.2rem;
+    }
+
+    .timeline-item::before {
+        top: 1.15rem;
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+
+    .timeline-item ul {
+        padding-left: 0.92rem;
+    }
+
+    .site-footer {
+        padding-bottom: 1.4rem;
+        font-size: 0.92rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .primary-nav {
+        gap: 0.85rem;
+    }
+
+    .header-actions {
+        flex-wrap: wrap;
+    }
+
+    .header-link {
+        font-size: 0.88rem;
+    }
+
+    .connect-button,
+    .lang-toggle {
+        min-height: 2.8rem;
+    }
+
+    .road-banner .hero-drive-scene__status {
+        font-size: 0.7rem;
+    }
+
+    .road-banner .hero-drive-scene__button,
+    .road-banner .hero-drive-scene__countdown {
+        font-size: 0.58rem;
+        padding-inline: 0.65rem;
+    }
+
+    .hero-actions .btn {
+        flex-basis: 100%;
+    }
+
+    .hero-copy > h1 {
+        font-size: clamp(2.05rem, 12vw, 2.85rem);
+    }
+}
+
+@media (pointer: coarse) {
+    .cursor-glow {
+        display: none;
+    }
+}
