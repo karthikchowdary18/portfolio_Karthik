@@ -50,21 +50,21 @@ portfolio-website/
 
 ## Render Deployment
 
-This project is prepared for a Docker-based Render deploy.
+This project is prepared for a Docker-based Render free web service.
 
-### Important note about SQLite
+### Important note about SQLite on the free tier
 
-Render services use an ephemeral filesystem by default, so local SQLite data is lost on redeploy unless you attach a persistent disk. This repo includes `render.yaml` configured for a persistent disk and stores the database at `/var/data/portfolio.db` in production.
+Render free web services use an ephemeral filesystem. That means local SQLite changes are lost when the service redeploys, restarts, or spins down. This portfolio will still work because it automatically recreates and reseeds the database from `app/database/models.py` when the database is empty.
 
 ### Deploy steps
 
-1. Create a GitHub repository and push this project.
+1. Push this project to GitHub.
 2. In Render, create a new Blueprint or Web Service from that repository.
 3. If you use the included `render.yaml`, Render will use:
+   - free web service plan
    - `Dockerfile`
    - region `frankfurt`
    - health check path `/api/health`
-   - persistent disk mount `/var/data`
 4. Deploy and open the generated `onrender.com` URL.
 
 ### If you deploy without Blueprint
@@ -72,11 +72,10 @@ Render services use an ephemeral filesystem by default, so local SQLite data is 
 Use these settings in Render:
 
 - Runtime: `Docker`
+- Plan: `Free`
 - Dockerfile Path: `./Dockerfile`
 - Docker Context: `.`
 - Health Check Path: `/api/health`
-- Environment Variable: `PORTFOLIO_DB_PATH=/var/data/portfolio.db`
-- Persistent Disk Mount Path: `/var/data`
 
 ## Notes
 
